@@ -1,0 +1,67 @@
+/* 用量入口常驻输入区，选购摘要只在浮层中出现。 */
+.composer-actions { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.context-meter { position:relative; flex-shrink:0; line-height:1.5; }
+.context-meter-trigger {
+ position:relative; display:grid; place-items:center; width:38px; height:38px;
+ padding:0; border:0; border-radius:50%; background:transparent; color:#6179a7;
+ cursor:pointer; transition:background .15s, color .15s;
+}
+.context-meter-trigger:hover, .context-meter-trigger[aria-expanded=true] { background:#eaf0fb; color:#45659d; }
+.context-meter-trigger:focus-visible { outline:2px solid #788fd1; outline-offset:3px; }
+.context-meter-trigger > svg { position:absolute; inset:1px; width:36px; height:36px; transform:rotate(-90deg); }
+.context-meter-trigger circle { fill:none; stroke-width:2.5; }
+.context-ring-track { stroke:#e0e6f0; }
+.context-ring-value { stroke:currentColor; transition:stroke-dasharray .3s ease; }
+.context-meter-trigger > span { position:relative; font-size:9px; font-weight:600; font-variant-numeric:tabular-nums; letter-spacing:-.2px; }
+.context-meter-trigger > i { position:absolute; width:6px; height:6px; border:1.5px solid #fff; border-radius:50%; right:1px; top:1px; background:#688aa6; }
+.context-meter-trigger > i.has-error { background:#b67256; }
+.context-meter-trigger.is-compacting .context-ring-track { stroke:#b2c1dc; stroke-dasharray:25 8; animation:context-pulse 1.4s ease-in-out infinite; }
+.context-meter .medium { color:#a37936; }
+.context-meter .high { color:#b56a53; }
+.context-popover {
+ position:absolute; right:-45px; bottom:calc(100% + 13px); z-index:120;
+ width:min(348px, calc(100vw - 40px)); max-height:min(560px, calc(100dvh - 170px)); overflow-y:auto;
+ padding:20px; border:1px solid #dce3ef; border-radius:18px;
+ background:rgba(255,255,255,.98); box-shadow:0 12px 45px #334b6d26, 0 2px 6px #334b6d0a;
+ text-align:left; color:#4b5d77; font-size:12px; line-height:1.6; outline:none;
+ animation:context-appear .15s ease-out; overscroll-behavior:contain;
+}
+.context-popover-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:20px; }
+.context-popover-heading strong { display:block; font-size:14px; font-weight:600; color:#354965; letter-spacing:.1px; }
+.context-popover-heading span { display:block; margin-top:2px; font-size:11px; color:#8996aa; }
+.context-popover-close { display:grid; place-items:center; width:28px; height:28px; border:0; border-radius:8px; background:transparent; color:#8a97aa; font-size:22px; line-height:1; cursor:pointer; }
+.context-popover-close:hover { background:#f0f3f9; color:#435571; }
+.context-usage-overview { display:flex; align-items:flex-end; justify-content:space-between; gap:14px; }
+.context-usage-overview > strong { font-size:29px; font-weight:500; line-height:1.1; color:#526fa2; font-variant-numeric:tabular-nums; }
+.context-usage-overview.medium > strong, .context-usage-overview.high > strong { color:inherit; }
+.context-usage-overview small { display:block; margin-top:5px; font-size:10px; font-weight:400; line-height:1.5; color:#8a97aa; }
+.context-usage-overview > span { text-align:right; font-size:12px; font-variant-numeric:tabular-nums; }
+.context-usage-bar { margin:13px 0 9px; height:5px; overflow:hidden; border-radius:5px; background:#edf1f7; color:#8098c5; }
+.context-usage-bar > span { display:block; height:100%; background:currentColor; border-radius:5px; transition:width .3s ease; }
+.context-usage-note { margin:0; font-size:11px; color:#7f8ca1; }
+.context-reserves { display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:12px; font-size:10px; color:#8995a8; }
+.context-reserves b { margin-left:4px; font-weight:500; color:#65748d; }
+.context-compact-button {
+ display:flex; justify-content:center; align-items:center; gap:7px; width:100%; min-height:36px; margin-top:18px;
+ border:1px solid #dce4f1; border-radius:9px; background:#f1f5fc; color:#5675a3; font:inherit; font-weight:500; cursor:pointer;
+}
+.context-compact-button > svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; }
+.context-compact-button:hover:not(:disabled) { background:#e7eefb; border-color:#c5d4ed; }
+.context-compact-button:disabled { opacity:.5; cursor:default; }
+.context-compact-hint { margin:7px 0 0; font-size:10px; color:#8b96a8; text-align:center; }
+.context-notice, .context-error { margin:12px 0 0; padding:8px 10px; border-radius:8px; background:#f1f6f6; color:#527d7c; font-size:11px; }
+.context-error { background:#fcf3ef; color:#a5674d; }
+.context-summary { margin-top:17px; padding-top:13px; border-top:1px solid #edf0f6; overflow-wrap:anywhere; }
+.context-summary > summary { cursor:pointer; font-size:11px; font-weight:500; color:#71809b; }
+.context-summary p { margin:10px 0; font-size:12px; }
+.context-summary ul { padding-left:18px; margin:8px 0; }
+.context-summary small { display:block; margin-top:8px; font-size:10px; color:#8b96a8; }
+@keyframes context-appear { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+@keyframes context-pulse { 50% { opacity:.4; } }
+@media (prefers-reduced-motion:reduce) {
+ .context-meter *, .context-popover { animation:none!important; transition:none!important; }
+}
+@media (max-width:530px) {
+ .composer-actions { gap:8px; }
+ .context-popover { right:-44px; padding:17px; }
+}

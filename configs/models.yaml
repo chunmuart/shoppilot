@@ -1,0 +1,80 @@
+# 当前部署首次导入的模板；型号、窗口与凭据沿用 Settings，不擅自升级。
+# 增加具体型号时必须注明适用网关与核验依据，不能按品牌推测能力。
+version: 1
+display_names:
+  qwen3-max: Qwen3-Max
+  qwen-plus: Qwen-Plus
+migration:
+  profile_id: current-gateway
+  label: 当前默认模型
+  provider: 当前网关
+  protocol: openai_chat
+  output_reserve: 8192
+  local_budget_options: [32000, 64000, 128000, 256000, 512000, 1000000]
+  counter:
+    kind: calibrated_estimate
+    tokenizer_ref: null
+  source:
+    kind: operator_declared
+    checked_at: null
+
+# 预设是添加草稿的参考，不自动注册或切换模型。私有网关仍需逐一校验。
+preset_defaults:
+  provider: 阿里云百炼
+  protocol: openai_chat
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  capabilities:
+    context_max: 1000000
+    max_input: 983616
+    max_output: 8192
+    streaming: true
+    tool_calling: true
+  official_limits:
+    context_max: 1000000
+    max_input_off: 991808
+    max_input_on: 983616
+    max_output: 131072
+  window_options:
+    - {id: budget-128000, tokens: 128000, kind: local_budget}
+    - {id: budget-200000, tokens: 200000, kind: local_budget}
+    - {id: budget-400000, tokens: 400000, kind: local_budget}
+    - {id: budget-1000000, tokens: 1000000, kind: local_budget}
+  default_window: budget-200000
+  reasoning: {kind: boolean, options: [default, 'off', 'on'], default: 'off'}
+  counter: {kind: calibrated_estimate, tokenizer_ref: null}
+presets:
+  - preset_id: qwen3.8-max
+    model_id: qwen3.8-max
+    probe_model_aliases: [qwen3.8-max-0902, qwen3.8-max-2026-09-02]
+    label: Qwen3.8-Max
+    source:
+      kind: official_reference
+      url: https://help.aliyun.com/zh/model-studio/qwen3-8-max
+      checked_at: '2026-10-08'
+      gateway_context_verified: false
+  - preset_id: qwen3.8-flash
+    model_id: qwen3.8-flash
+    label: Qwen3.8-Flash
+    source:
+      kind: official_reference
+      url: https://help.aliyun.com/zh/model-studio/qwen3-8-flash
+      checked_at: '2026-10-08'
+      gateway_context_verified: false
+  - preset_id: qwen3.7-plus
+    model_id: qwen3.7-plus
+    probe_model_aliases: [qwen3.7-plus-2026-05-26]
+    label: Qwen3.7-Plus
+    source:
+      kind: official_reference
+      url: https://help.aliyun.com/zh/model-studio/qwen3-7-plus
+      checked_at: '2026-10-08'
+      gateway_context_verified: false
+  - preset_id: qwen3.7-flash
+    model_id: qwen3.7-flash
+    probe_model_aliases: [qwen3.7-flash-2026-07-15]
+    label: Qwen3.7-Flash
+    source:
+      kind: official_reference
+      url: https://help.aliyun.com/zh/model-studio/qwen3-7-flash
+      checked_at: '2026-10-08'
+      gateway_context_verified: false

@@ -1,0 +1,1 @@
+A2UI v0.9 server_to_client.json / client_to_server.json 来自 Google A2UI 官方 specification/v0_9/json，2026-09-18 获取，原样保留。catalog.json 为 ShopPilot 的自定义 ShoppingForm 目录；仅支持此组件，不宣称完整标准组件渲染器。上游：https://github.com/google/A2UI

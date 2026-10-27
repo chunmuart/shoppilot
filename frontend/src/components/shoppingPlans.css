@@ -1,0 +1,73 @@
+/* 方案入口沿用现有纸白与墨绿：清单是可选起点，真实执行状态独立呈现。 */
+.shopping-plans { margin: 25px 0 30px; text-align: left; }
+.shopping-plans-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.shopping-plans-heading h2 { margin:3px 0 0; font:500 24px/1.4 var(--serif); color:var(--green); }
+.plan-eyebrow { display:flex; gap:6px; align-items:center; font-size:10px; letter-spacing:.8px; color:var(--muted); }
+.plan-eyebrow svg { width:14px; height:14px; }
+.plan-refresh { padding:9px 3px; font-size:11px; color:var(--muted); text-decoration:underline; text-underline-offset:4px; }
+.plan-refresh:hover { color:var(--green); }
+.plan-introduction { margin:11px 0 17px; color:var(--muted); font-size:12px; }
+.plan-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr)); gap:12px; }
+.plan-card { display:flex; min-width:0; flex-direction:column; gap:10px; padding:19px; text-align:left; border:1px solid var(--line); border-radius:13px; background:var(--white); transition:border-color .18s, background .18s, transform .18s; }
+.plan-card:hover:not(:disabled) { border-color:#a5b7a8; transform:translateY(-2px); }
+.plan-card.is-selected { border-color:var(--green); background:#f0f4ed; }
+.plan-card-top { display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
+.plan-card-top strong { font:500 18px/1.5 var(--serif); color:var(--green); overflow-wrap:anywhere; }
+.plan-version { color:var(--muted); font-size:10px; white-space:nowrap; }
+.plan-description { color:#6d786e; font-size:12px; line-height:1.8; overflow-wrap:anywhere; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.plan-card-action { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:6px; font-size:11px; color:var(--green); }
+.plan-card-action svg { width:16px; height:16px; }
+.plan-empty { display:flex; align-items:center; gap:9px; padding:17px 20px; margin:0; border:1px dashed #d9e0d5; border-radius:12px; color:#7b857b; font-size:12px; background:#f6f7f1; }
+.plan-empty svg { width:17px; height:17px; opacity:.7; }
+.plan-load-error { color:#8a694c; }
+.composer-plan-controls { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:-2px 0 10px; }
+.plan-picker-toggle { display:flex; align-items:center; gap:5px; padding:7px 9px; margin-left:-4px; border-radius:7px; color:var(--green); font-size:11px; }
+.plan-picker-toggle:hover,.plan-picker-toggle[aria-expanded="true"] { background:var(--sage); }
+.plan-picker-toggle svg { width:15px; height:15px; }
+.plan-automatic { font-size:10px; color:var(--muted); }
+.selected-plan { display:inline-flex; align-items:center; gap:6px; max-width:100%; border-radius:7px; background:var(--sage); color:var(--green); padding:5px 6px 5px 10px; font-size:11px; }
+.selected-plan span { overflow-wrap:anywhere; }
+.selected-plan button { display:grid; place-items:center; padding:5px; }
+.selected-plan button svg { width:13px; height:13px; }
+.plan-picker-panel { max-height:33vh; max-height:33dvh; overflow:auto; overscroll-behavior:contain; margin:0 0 12px; padding:0 3px 3px; }
+.shopping-plans--compact { margin:0; }
+.shopping-plans--compact .plan-eyebrow { display:none; }
+.shopping-plans--compact .shopping-plans-heading h2 { font-size:19px; }
+.shopping-plans--compact .plan-introduction { font-size:11px; margin:7px 0 12px; }
+.shopping-plans--compact .plan-card { padding:13px 14px; gap:6px; }
+.shopping-plans--compact .plan-card-top strong { font-size:16px; }
+.skill-run-status { margin:18px 0; display:grid; gap:8px; }
+.skill-run-item { display:flex; align-items:center; gap:7px; margin:0; font-size:12px; color:#778277; }
+.skill-run-item svg { width:16px; height:16px; }
+.skill-run-item--used { color:var(--green); }
+.skill-run-item--error { color:#926745; }
+.skill-event-name { font-size:12px; color:var(--green); }
+.skill-query-input { position:relative; }
+.slash-skill-menu { position:absolute; bottom:calc(100% + 12px); left:-6px; right:-6px; z-index:5; padding:12px; border:1px solid #d4ded2; border-radius:14px; background:#fffefb; box-shadow:0 12px 40px #173f3517; }
+.slash-skill-heading,.slash-skill-heading>span { display:flex; align-items:center; gap:7px; }
+.slash-skill-heading { justify-content:space-between; padding:2px 6px 10px; color:var(--green); font:500 16px/1.5 var(--serif); }
+.slash-skill-heading svg { width:16px; height:16px; }
+.slash-skill-heading button { font:11px/1.5 var(--sans); color:var(--muted); padding:5px; }
+.slash-skill-options { max-height:min(34dvh,290px); overflow:auto; overscroll-behavior:contain; }
+.slash-skill-options>button { display:flex; flex-direction:column; gap:4px; width:100%; padding:12px; border-radius:9px; text-align:left; }
+.slash-skill-options>button[aria-selected="true"] { background:var(--sage); }
+.slash-skill-name { display:flex; justify-content:space-between; gap:12px; align-items:baseline; color:var(--green); }
+.slash-skill-name strong { font:500 17px/1.5 var(--serif); }
+.slash-skill-name small,.slash-skill-id { font-size:10px; color:var(--muted); }
+.slash-skill-description { font-size:12px; line-height:1.65; color:#6d786e; overflow-wrap:anywhere; }
+.slash-skill-help { display:flex; justify-content:space-between; gap:8px; margin:8px 6px 0; padding-top:9px; border-top:1px solid var(--line); color:var(--muted); font-size:10px; }
+.slash-skill-empty { margin:5px 6px 12px; font-size:12px; line-height:1.8; color:var(--muted); }
+@media(max-width:650px) {
+  .shopping-plans { margin:20px 0 28px; }
+  .shopping-plans-heading h2 { font-size:22px; }
+  .plan-grid { grid-template-columns:1fr; gap:9px; }
+  .plan-card { padding:16px; }
+  .plan-introduction { font-size:11px; }
+  .plan-empty { padding:15px; line-height:1.8; }
+  .shopping-plans--compact { margin:0; }
+  .plan-picker-panel { max-height:29vh; max-height:29dvh; }
+  .plan-automatic { margin-left:auto; }
+  main { padding-bottom:calc(225px + env(safe-area-inset-bottom,0px)); }
+  .scroll-anchor { scroll-margin-bottom:calc(215px + env(safe-area-inset-bottom,0px)); }
+}
+@media(prefers-reduced-motion:reduce) { .plan-card { transition:none; } .plan-card:hover:not(:disabled) { transform:none; } }

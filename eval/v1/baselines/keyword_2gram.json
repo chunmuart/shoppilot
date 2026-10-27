@@ -1,0 +1,14 @@
+{
+  "approval": "repository-baseline",
+  "approved_at": "2026-08-29",
+  "dataset": "eval/v1/product_retrieval.jsonl",
+  "profile": "offline-fallback",
+  "strategies": {
+    "keyword_2gram": {
+      "recall": 0.88,
+      "precision": 0.636,
+      "mrr": 0.888,
+      "ndcg": 0.88
+    }
+  }
+}

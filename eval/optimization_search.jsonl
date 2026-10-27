@@ -1,0 +1,12 @@
+{"id":"train-1","split":"train","query":"找旅行背包，送日本，商品单价不超过300人民币","expected":{"ship_to":"JP","price_max_major":300,"target_currency":"CNY"}}
+{"id":"train-2","split":"train","query":"找不含塑料的水杯，排除合成聚合物材质，送美国","expected":{"ship_to":"US","excluded_material_tags":["合成聚合物"]}}
+{"id":"train-3","split":"train","query":"核对 P1003-S1 的当前库存和价格，不要换成别的规格","expected":{"query_contains":["P1003-S1"]}}
+{"id":"train-4","split":"train","query":"买陶瓷杯，单价上限40美元，配送美国","expected":{"ship_to":"US","price_max_major":40,"target_currency":"USD"}}
+{"id":"val-1","split":"val","query":"想买旅行收纳袋，送英国，每件不超过30英镑","expected":{"ship_to":"GB","price_max_major":30,"target_currency":"GBP"}}
+{"id":"val-2","split":"val","query":"请查 P1001，预算暂不限制，只核对这个商品","expected":{"query_contains":["P1001"],"price_max_major":null}}
+{"id":"val-3","split":"val","query":"找去日本用的背包，这次排除真皮，限200元人民币","expected":{"ship_to":"JP","price_max_major":200,"target_currency":"CNY","excluded_material_tags":["真皮"]}}
+{"id":"val-4","split":"val","query":"推荐天然纤维材质的收纳袋，必须包含天然纤维，送加拿大","expected":{"ship_to":"CA","required_material_tags":["天然纤维"]}}
+{"id":"holdout-1","split":"holdout","query":"找办公台灯，送新加坡，最高60新加坡元一件","expected":{"ship_to":"SG","price_max_major":60,"target_currency":"SGD"}}
+{"id":"holdout-2","split":"holdout","query":"看看 P1003-S2，规格必须一致","expected":{"query_contains":["P1003-S2"]}}
+{"id":"holdout-3","split":"holdout","query":"背包送德国，排除真皮和合成聚合物，单价上限50欧元","expected":{"ship_to":"DE","price_max_major":50,"target_currency":"EUR","excluded_material_tags":["真皮","合成聚合物"]}}
+{"id":"holdout-4","split":"holdout","query":"找杯子送澳大利亚，预算70澳元，不要玻璃材质","expected":{"ship_to":"AU","price_max_major":70,"target_currency":"AUD","excluded_material_tags":["玻璃"]}}

@@ -1,0 +1,25 @@
+/* 紧凑的是层级与留白；正文仍保留可读行距和完整内容。 */
+.shoppilot-workbench .conversation{margin:18px 0 16px}
+.shoppilot-workbench .conversation-turn+.conversation-turn{margin-top:20px}
+.shoppilot-workbench .conversation .query-row{gap:8px;margin:0 0 14px}
+.shoppilot-workbench .conversation .query-bubble{padding:10px 13px;border-radius:12px 12px 3px 12px;font-size:13px;line-height:1.65}
+.shoppilot-workbench .conversation .query-avatar{width:26px;height:26px;font-size:11px}
+.shoppilot-workbench .conversation .assistant-row{gap:9px;margin:0 0 16px}
+.shoppilot-workbench .conversation .assistant-mark{width:26px;height:26px;min-width:26px;border-radius:8px}
+.shoppilot-workbench .conversation .assistant-mark svg{width:16px;height:16px}
+.shoppilot-workbench .conversation .assistant-response{min-width:0;padding-top:1px}
+.shoppilot-workbench .conversation .assistant-label{margin-bottom:3px;font-size:12px}
+.shoppilot-workbench .conversation .assistant-label span{font-size:10px}
+.shoppilot-workbench .conversation .assistant-text{font-size:13px;line-height:1.65}
+.shoppilot-workbench .conversation .assistant-text+.assistant-text{margin-top:9px}
+.shoppilot-workbench .conversation .markdown{font-size:13px;line-height:1.65;overflow-wrap:anywhere}
+.shoppilot-workbench .conversation .markdown p{margin:5px 0 8px}
+.shoppilot-workbench .conversation .markdown h1,.shoppilot-workbench .conversation .markdown h2,.shoppilot-workbench .conversation .markdown h3{margin:12px 0 6px;font-size:14px;line-height:1.5;font-weight:600}
+.shoppilot-workbench .conversation .markdown ul,.shoppilot-workbench .conversation .markdown ol{margin:6px 0 9px;padding-left:20px}
+.shoppilot-workbench .conversation .markdown li{margin:3px 0}
+.shoppilot-workbench .conversation .markdown li>p{margin:3px 0}
+.shoppilot-workbench .conversation .markdown th,.shoppilot-workbench .conversation .markdown td{padding:6px 8px;font-size:12px}
+.shoppilot-workbench .conversation .markdown blockquote{margin:8px 0;padding:2px 10px}
+.shoppilot-workbench .conversation .markdown hr{margin:12px 0}
+.shoppilot-workbench .conversation .answer-details>summary{padding:6px 0;font-size:11px}
+@media(max-width:640px){.shoppilot-workbench .conversation .assistant-row{gap:7px}.shoppilot-workbench .conversation .query-bubble{padding:9px 11px}.shoppilot-workbench .conversation .answer-details>summary{min-height:44px;display:flex;align-items:center}}

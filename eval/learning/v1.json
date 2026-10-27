@@ -1,0 +1,32 @@
+{
+  "version": "learning-search-v1-20261003",
+  "scope": "隔离真实模型检索决策评测；不替代完整买家交易及生产收益验收",
+  "learning_evidence": {
+    "synthetic": true,
+    "buyer_id": "learning-fixture-buyer",
+    "session_id": "learning-fixture-session",
+    "input": "买家先找杯子，随后改为送日本、最多180人民币且不要玻璃；第一次查询漏了预算，修正结构化过滤后成功。",
+    "output": "保留最新目的地、币种、预算和材质排除条件，重新查询后只说明工具实际返回的候选。",
+    "facts": [
+      {"ref": "fixture:corrected-search-v1", "value": {"tool": "product_search_tool", "args": {"normalized_query": "杯子", "ship_to": "JP", "price_max_major": 180, "target_currency": "CNY", "excluded_material_tags": ["玻璃"]}, "result": "返回已应用全部过滤条件的商品候选"}},
+      {"ref": "fixture:source-check-v1", "value": {"latest_constraints_preserved": true, "write_operation": false}}
+    ],
+    "checks": {"latest_constraints_preserved": true, "no_unapproved_write": true},
+    "split": "train", "lineage_id": "corrected-search-family", "learning_allowed": true,
+    "meaningful": true, "outcome": "success", "versions": {"fixture": "v1"}
+  },
+  "cases": [
+    {"id": "learning-hold-budget", "kind": "positive", "query": "选旅行包寄法国，商品单价最多八十欧元。", "expected": {"ship_to": "FR", "price_max_major": 80, "target_currency": "EUR"}},
+    {"id": "learning-hold-change", "kind": "positive", "query": "之前预算300人民币，现在改为160人民币。找背包寄韩国，用新预算查询。", "expected": {"ship_to": "KR", "price_max_major": 160, "target_currency": "CNY"}},
+    {"id": "learning-hold-exclude", "kind": "positive", "query": "找杯子寄新西兰，排除玻璃和合成聚合物，预算55新西兰元。", "expected": {"ship_to": "NZ", "price_max_major": 55, "target_currency": "NZD", "excluded_material_tags": ["玻璃", "合成聚合物"]}},
+    {"id": "learning-hold-required", "kind": "positive", "query": "给马来西亚找金属材质台灯，必须包含金属，商品单价最多120马来西亚林吉特。", "expected": {"ship_to": "MY", "price_max_major": 120, "target_currency": "MYR", "required_material_tags": ["金属"]}},
+    {"id": "learning-hold-sku", "kind": "positive", "query": "只核对 P1003-S2 当前库存，配送中国，不换规格。", "expected": {"sku_id": "P1003-S2", "ship_to": "CN"}},
+    {"id": "learning-hold-currency", "kind": "positive", "query": "旅行收纳包送瑞士，但预算按美元，每件35美元以内。", "expected": {"ship_to": "CH", "target_currency": "USD", "price_max_major": 35}},
+    {"id": "learning-hold-no-budget", "kind": "negative", "query": "找背包送西班牙，没有预算限制，不要自行加价格上限。", "expected": {"ship_to": "ES", "price_max_major": null}},
+    {"id": "learning-hold-retracted", "kind": "negative", "query": "找杯子寄中国，这次撤回之前不要玻璃的要求，不限材质。", "expected": {"ship_to": "CN", "excluded_material_tags": [], "required_material_tags": []}},
+    {"id": "learning-hold-country", "kind": "negative", "query": "背包从上次寄美国改为这次寄泰国，币种仍用人民币。", "expected": {"ship_to": "TH", "target_currency": "CNY"}},
+    {"id": "learning-hold-product", "kind": "negative", "query": "只查看 P1004，不要沿用之前 P1003 的规格，也不设价格上限。", "expected": {"product_id": "P1004", "sku_id": null, "price_max_major": null}},
+    {"id": "learning-hold-unlimited", "kind": "negative", "query": "之前200元限制取消，找寄意大利的行李箱，现在预算不限，按欧元展示。", "expected": {"ship_to": "IT", "target_currency": "EUR", "price_max_major": null}},
+    {"id": "learning-hold-neutral", "kind": "negative", "query": "找旅行收纳袋，送葡萄牙，不限预算和材质，不要推断我讨厌某种材料。", "expected": {"ship_to": "PT", "price_max_major": null, "excluded_material_tags": [], "required_material_tags": []}}
+  ]
+}

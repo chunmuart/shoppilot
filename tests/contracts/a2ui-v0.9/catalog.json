@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2ui.org/specification/v0_9/catalog.json",
+  "$defs": {
+    "theme": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "anyComponent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "const": "root"
+        },
+        "component": {
+          "const": "ShoppingForm"
+        },
+        "title": {
+          "type": "string"
+        },
+        "value": {
+          "const": {
+            "path": "/requirements"
+          }
+        },
+        "action": {
+          "const": {
+            "event": {
+              "name": "applyShoppingRequirements",
+              "context": {
+                "requirements": {
+                  "path": "/requirements"
+                }
+              }
+            }
+          }
+        },
+        "questions": {
+          "description": "Agent 根据本轮上下文决定的问题，按展示顺序排列",
+          "items": {
+            "$ref": "#/$defs/ClarificationQuestion"
+          },
+          "maxItems": 12,
+          "minItems": 1,
+          "title": "Questions",
+          "type": "array"
+        },
+        "context": {
+          "default": "",
+          "description": "已知选购背景，仅作指代，不作为买家新答案",
+          "maxLength": 1000,
+          "title": "Context",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "description": "解释本次为什么需要补充这些信息",
+          "maxLength": 500,
+          "title": "Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "component",
+        "title",
+        "value",
+        "action",
+        "questions",
+        "context",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "ClarificationOption": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Value",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "label"
+      ],
+      "title": "ClarificationOption",
+      "type": "object"
+    },
+    "ClarificationQuestion": {
+      "additionalProperties": false,
+      "description": "限制控件能力和数据大小，不预设任何选购问题或答案。",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_]{0,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "text",
+            "number",
+            "single_select",
+            "multi_select"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "required": {
+          "default": false,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "help_text": {
+          "default": "",
+          "maxLength": 500,
+          "title": "Help Text",
+          "type": "string"
+        },
+        "placeholder": {
+          "default": "",
+          "maxLength": 200,
+          "title": "Placeholder",
+          "type": "string"
+        },
+        "unit": {
+          "default": "",
+          "maxLength": 40,
+          "title": "Unit",
+          "type": "string"
+        },
+        "minimum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/$defs/ClarificationOption"
+          },
+          "maxItems": 20,
+          "title": "Options",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "label"
+      ],
+      "title": "ClarificationQuestion",
+      "type": "object"
+    }
+  }
+}

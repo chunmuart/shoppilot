@@ -1,0 +1,61 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+# 运行态数据仍忽略；评测基准商品集必须随代码版本化。
+data/*
+!data/catalog-v1.jsonl
+eval/report-*.md
+# 召回评测报告同样是每次跑测的产物，不入库；标注集（eval/*.jsonl）要入库
+eval/recall-report-*.md
+eval/category-recall-report-*.md
+
+# 课程资料与本地工具目录：只保留在本地，不入工程仓库
+.baoyu-skills/
+.idea/
+.qoder/
+/images/
+/learn-claude-code/
+/pi/
+node_modules/
+
+# 课程仓库内容（根目录）：只保留在本地 main 分支，不入工程仓库
+/*.md
+!/README.md
+!/AGENTS.md
+/*.html
+/*.json
+/*.xml
+/*.png
+/*.jpg
+/.nojekyll
+/.env-example
+/.husky/
+/.vscode/
+/lib/
+/odps_task/
+/案例与源码-*/
+/实战项目-*/
+/项目实战-*/
+/LICENSE
+/commitlint.config.js
+/requirements.txt
+/repo-auth-service/
+
+# 多语言合成目录随源码交付；本机依赖和构建缓存不入库。
+!data/catalog-v2.jsonl
+!data/catalog-v3.jsonl
+.cache/
+frontend/dist/
+*.tsbuildinfo
+
+# 设计文档、改动记录与图解仅在本地维护。
+/docs/
+
+# 评测使用的临时买家/学习数据库只保留在本机。
+/eval/verification/**/isolated/
+/eval/verification/**/runtime/
+# 模型凭据主密钥永不进入版本库（含自定义 DATA_DIR）。
+**/.secrets/
+.research/

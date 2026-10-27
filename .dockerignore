@@ -1,0 +1,15 @@
+# 本机凭据与运行数据不进入后端镜像构建上下文。
+.env
+.env.*
+!.env.example
+.git
+.venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+frontend/node_modules
+frontend/dist
+data/*
+!data/catalog-v1.jsonl
+!data/catalog-v3.jsonl
+eval/verification

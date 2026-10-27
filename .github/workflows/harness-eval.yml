@@ -1,0 +1,86 @@
+name: Harness regression
+
+on:
+  pull_request:
+    paths: ['app/**', 'scripts/eval/**', 'eval/harness/v1/**', 'eval/learning/**', 'tests/**', 'data/catalog-v1.jsonl', 'Makefile', 'pyproject.toml', 'uv.lock', '.github/workflows/harness-eval.yml']
+  push:
+    branches: [main]
+    paths: ['app/**', 'scripts/eval/**', 'eval/harness/v1/**', 'eval/learning/**', 'tests/**', 'data/catalog-v1.jsonl', 'Makefile', 'pyproject.toml', 'uv.lock', '.github/workflows/harness-eval.yml']
+  workflow_dispatch:
+    inputs:
+      profile:
+        type: choice
+        options: [smoke, dev, release]
+        default: smoke
+
+permissions:
+  contents: read
+
+concurrency:
+  group: harness-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  safety-contracts:
+    name: Offline safety contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      LLM_API_KEY: ''
+      REDIS_URL: ''
+      LANGFUSE_SECRET_KEY: ''
+      LANGFUSE_PUBLIC_KEY: ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install uv
+      - run: uv sync --frozen
+      - name: Safety contracts without model credentials
+        run: uv run python -m scripts.eval.harness run --profile contracts --output eval/verification/ci-contracts
+      - name: Preserve contract report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: harness-contracts-${{ github.run_id }}-${{ github.run_attempt }}
+          path: eval/verification/ci-contracts
+          retention-days: 30
+
+  model-evaluation:
+    name: Real model evaluation
+    needs: safety-contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      LLM_BASE_URL: ${{ secrets.HARNESS_LLM_BASE_URL }}
+      LLM_API_KEY: ${{ secrets.HARNESS_LLM_API_KEY }}
+      LLM_MODEL: ${{ vars.HARNESS_LLM_MODEL || 'qwen3.8-flash' }}
+      LLM_FALLBACK_MODEL: ''
+      REDIS_URL: ''
+      LANGFUSE_SECRET_KEY: ''
+      LANGFUSE_PUBLIC_KEY: ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install uv
+      - run: uv sync --frozen
+      - name: Real model evaluation
+        env:
+          HARNESS_PROFILE: ${{ inputs.profile || 'smoke' }}
+        run: |
+          if [ "$HARNESS_PROFILE" = release ]; then
+            uv run python -m scripts.eval.harness run --profile release --output eval/verification/ci-model --require-benefit
+          else
+            uv run python -m scripts.eval.harness run --profile "$HARNESS_PROFILE" --output eval/verification/ci-model
+          fi
+          uv run python -m scripts.eval.harness verify eval/verification/ci-model
+      - name: Preserve HTML and raw failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: harness-model-${{ github.run_id }}-${{ github.run_attempt }}
+          path: eval/verification/ci-model
+          retention-days: 30

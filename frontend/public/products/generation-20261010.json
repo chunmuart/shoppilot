@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-10",
+  "mode": "built-in image_gen",
+  "kind": "illustration",
+  "purpose": "虚构商品类型的概念外观；不代表某个SKU的颜色、尺寸、数量或材质",
+  "assets": [
+    {
+      "file": "catalog-atlas-a-v1.png",
+      "prompt": "Use case: product-mockup. Asset type: a precise 4-column by 4-row ecommerce product atlas, 2048x2048 square, divided into 16 EXACTLY equal square cells, no border, no text, no labels, no logos. Each cell has exactly one isolated unbranded product or matching small set centered fully within that cell, 18% padding all sides, pure pale ivory background, soft studio shadow, premium realistic 3D catalog rendering, consistent camera scale. Do NOT merge subjects between cells. Row 1 left to right: a graphite hiking backpack with straps; a set of 3 rectangular beige zipped packing cubes; a pale blue U-shaped travel neck pillow; a white compact USB-C wall charger. Row 2: graphite over-ear headphones; a silver slim rectangular power bank; an aluminum USB-C multiport hub; a sage green insulated metal water bottle with screw cap. Row 3: a portable warm-glowing camping lantern with handle; a rolled-out olive sleeping bag; one folded dark gray blackout curtain with metal grommets; a beige lidded rectangular storage box. Row 4: a cream ceramic coffee mug; a clear glass rectangular food container with lid; a stainless steel gooseneck pour-over kettle; a small set of three translucent reusable zip food storage bags. Ensure all 16 subjects are separate, centered in their exact grid cell and recognizable at thumbnail size."
+    },
+    {
+      "file": "catalog-atlas-b-v1.png",
+      "prompt": "Use case: product-mockup. Asset type: a precise 4-column by 4-row ecommerce product atlas, 2048x2048 square, divided into 16 EXACTLY equal square cells, no border, no text, no labels, no logos. Each cell exactly one isolated unbranded product or matching small set centered fully within that cell, 18% padding all sides, pure pale ivory background, soft studio shadow, premium realistic 3D catalog rendering, consistent camera scale. Do NOT merge subjects between cells. Row 1 left to right: an elegant compact white adjustable desk lamp; an aluminum laptop stand without laptop; a closed beige paper notebook; a soft gray pet travel carrier bag with mesh sides. Row 2: a white pet drinking fountain with small water stream; a folded cotton baby bath towel; three refillable travel toiletry bottles; a compact white folding travel hair dryer. Row 3: a black folding camping stool; a silver ribbed hard-shell cabin suitcase; a matching travel set of a pouch, a U-shaped neck pillow and a sleep eye mask; a pair of folded black trekking poles. Row 4: a dark gray padded eye mask; a pair of small wireless earbuds with charging case; a cream fabric RFID passport pouch; a small digital hanging luggage scale with hook. Ensure all 16 subjects are separate, centered in their exact grid cell and recognizable at thumbnail size."
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+/* 卡片保持固定阅读尺度：结果较少时不拉伸，长规格和金额仍完整显示。 */
+.product-grid.compact-product-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 212px));
+  align-items: stretch;
+  justify-content: start;
+  gap: 12px;
+}
+
+.compact-product-grid .product-card {
+  border-radius: 13px;
+}
+
+.compact-product-grid .product-visual {
+  height: 148px;
+  flex: 0 0 148px;
+  margin: 5px;
+  border-radius: 9px;
+}
+
+.compact-product-grid .image-open {
+  padding: 14px 17px 20px;
+}
+
+.compact-product-grid .product-badge {
+  top: 8px;
+  left: 8px;
+  max-width: calc(100% - 55px);
+  padding: 3px 5px;
+  font-size: 10px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.compact-product-grid .heart {
+  top: 6px;
+  right: 6px;
+  width: 32px;
+  height: 32px;
+}
+
+.compact-product-grid .product-visual .visual-caption {
+  left: 7px;
+  bottom: 6px;
+  max-width: calc(100% - 14px);
+  font-size: 9px;
+  letter-spacing: 0;
+  color: #68758e;
+}
+
+.compact-product-grid .image-placeholder {
+  gap: 3px;
+  padding-top: 12px;
+}
+
+.compact-product-grid .image-placeholder > svg {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 2px;
+}
+
+.compact-product-grid .image-placeholder > span {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.compact-product-grid .image-placeholder > small {
+  font-size: 9px;
+  letter-spacing: 0;
+}
+
+.compact-product-grid .product-body {
+  padding: 8px 11px 9px;
+}
+
+.compact-product-grid .product-topline {
+  align-items: baseline;
+  gap: 2px 6px;
+  flex-wrap: wrap;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: #68758e;
+}
+
+.compact-product-grid .product-topline > span:first-child {
+  overflow-wrap: anywhere;
+}
+
+.compact-product-grid .rating {
+  font-size: 10px;
+}
+
+.compact-product-grid .product-title {
+  min-height: 40px;
+  margin: 5px 0 3px;
+  font-size: 13px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.compact-product-grid .product-subtitle {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #68758e;
+}
+
+.compact-product-grid .product-price-row {
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 4px 7px;
+  margin-top: 9px;
+}
+
+.compact-product-grid .price {
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  overflow-wrap: anywhere;
+}
+
+.compact-product-grid .price-kind {
+  margin: 0;
+  font-size: 10px;
+  color: #748099;
+}
+
+.compact-product-grid .card-landed {
+  margin-top: 7px;
+  padding: 4px 6px;
+  border-radius: 5px;
+  gap: 1px;
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  color: #696582;
+}
+
+.compact-product-grid .card-landed span {
+  flex-basis: 100%;
+  font-size: 10px;
+  color: #748099;
+}
+
+.compact-product-grid .card-landed.pending {
+  font-size: 10px;
+  color: #748099;
+}
+
+.compact-product-grid .product-footer {
+  flex-wrap: wrap;
+  gap: 0 6px;
+  margin-top: 8px;
+  padding-top: 4px;
+  font-size: 11px;
+}
+
+.compact-product-grid .compare-check,
+.compact-product-grid .detail-button {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.compact-product-grid .compare-check {
+  gap: 4px;
+}
+
+.compact-product-grid .compare-check input {
+  flex: 0 0 13px;
+}
+
+.compact-product-grid .detail-button svg {
+  margin-left: 2px;
+  width: 11px;
+  height: 11px;
+}
+
+@media (max-width: 650px) {
+  /* 旧版手机规则带有 !important，仅覆盖这个旧间距，不影响详情与比较抽屉。 */
+  .compact-product-grid .product-footer {
+    margin-top: 8px !important;
+  }
+}
+
+@media (max-width: 530px) {
+  .product-grid.compact-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 436px;
+    gap: 10px;
+  }
+
+  .compact-product-grid .product-visual {
+    height: 138px;
+    flex-basis: 138px;
+  }
+
+  .compact-product-grid .product-body {
+    padding: 7px 9px 7px;
+  }
+
+  .compact-product-grid .product-footer {
+    gap: 0 4px;
+  }
+
+  .compact-product-grid .compare-check,
+  .compact-product-grid .detail-button {
+    min-height: 36px;
+  }
+}
+
+@media (max-width: 359px) {
+  .product-grid.compact-product-grid {
+    grid-template-columns: minmax(0, 250px);
+  }
+}
+
+/* 图集只在浏览器视口裁切，原图保留；同一张图只下载一次。 */
+.catalog-media-image { display: block; width: 100%; height: 100%; overflow: hidden; background: #fdfcf8; }
+.image-open > .catalog-media-image,.detail-visual > .catalog-media-image { width: 100%; height: 100%; }
+.tool-product-icon .catalog-media-image { width: 100%; height: 100%; border-radius: 5px; }
+.tool-product-icon .image-placeholder { min-height: 0; height: 100%; }
+.tool-product-icon .image-placeholder span,.tool-product-icon .image-placeholder small { display: none; }

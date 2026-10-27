@@ -1,0 +1,74 @@
+.orders-toolbar,.orders-pagination{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:28px 0}.orders-toolbar button,.orders-pagination button,.order-card button{border:1px solid #d9e1d9;border-radius:999px;background:#fff;padding:10px 18px;color:#284a3b;cursor:pointer}.orders-toolbar [aria-pressed=true]{background:#254c3d;color:#fff}.orders-toolbar [role=group]{display:flex;gap:8px}.order-list{display:grid;gap:22px}.order-card{background:#fff;border:1px solid #e1e6df;border-radius:22px;padding:26px}.order-card header,.order-card footer,.order-lines>div{display:flex;justify-content:space-between;align-items:center;gap:18px}.order-card h2{overflow-wrap:anywhere;font-size:16px;margin:8px 0 0}.order-card small{display:block;color:#7c857d;font-size:12px}.order-status{background:#eef4ed;color:#365d45;border-radius:99px;padding:7px 14px;font-size:13px}.order-status.CANCELLED{background:#f1f0ed;color:#818078}.order-lines{margin:22px 0;display:grid;gap:18px}.order-lines small{margin-top:6px}.order-card footer{border-top:1px solid #eef0eb;padding-top:20px}.order-card footer>div{display:flex;gap:8px}.order-detail{background:#f7f8f3;padding:20px;border-radius:16px;margin-top:18px;line-height:1.8}.order-detail input{display:block;width:100%;box-sizing:border-box;padding:12px;border:1px solid #d9e1d9;border-radius:10px;margin:10px 0 16px}.order-card button:disabled,.orders-pagination button:disabled{opacity:.45;cursor:default}@media(max-width:640px){.order-card{padding:18px}.order-card footer{align-items:flex-start;flex-direction:column}.orders-toolbar{flex-wrap:wrap}.orders-toolbar button{padding:8px 12px}}
+
+/* 订单与收藏共享紧凑列表，商品事实仍由服务端快照提供。 */
+.shoppilot-workbench main.management-main { padding-bottom: 36px; }
+.purchases-workspace { padding: 0 0 24px; color: #536184; }
+.purchase-tabs { display: flex; align-items: center; gap: 22px; border-bottom: 1px solid #dfe2f0; }
+.purchase-tabs button { display: flex; align-items: center; gap: 7px; padding: 10px 2px 12px; background: none; border: 0; border-bottom: 2px solid transparent; color: #8b92ac; font-size: 13px; }
+.purchase-tabs button[aria-selected="true"] { color: #7163ce; border-bottom-color: #8a7ce3; font-weight: 600; }
+.purchase-tabs svg { width: 16px; height: 16px; }
+.purchase-tabs button > span { font-size: 10px; background: #ece9fb; padding: 1px 6px; border-radius: 6px; }
+.buyer-workspace.compact-orders { padding: 0; }
+.compact-orders .orders-toolbar,.favorites-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 14px 0 12px; font-size: 12px; }
+.compact-orders .orders-toolbar > div { display: flex; gap: 5px; }
+.compact-orders button,.favorite-actions button,.purchase-empty button { padding: 6px 10px; border: 1px solid #e1dff1; border-radius: 7px; color: #7364ba; background: #fff; font-size: 11px; }
+.compact-orders .orders-toolbar button[aria-pressed="true"] { background: #ebe7fb; border-color: #e0d9fa; color: #6c5dc4; }
+.compact-orders .order-list,.favorite-list { display: grid; gap: 9px; }
+.compact-orders .order-card { padding: 0; border-radius: 10px; border: 1px solid #e1e5f0; background: #ffffffdf; overflow: hidden; }
+.compact-orders .order-card > header { display: flex; padding: 8px 12px; border-bottom: 1px solid #eaedf6; background: #f8f9fd; gap: 10px; align-items: center; justify-content: space-between; }
+.compact-orders .order-card > header > div { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.compact-orders .order-card h2 { margin: 0; font: 500 10px/1.5 var(--sans, sans-serif); color: #939cb3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.compact-orders .order-card header small { font-size: 10px; white-space: nowrap; color: #8894ae; }
+.compact-orders .order-status { flex-shrink: 0; padding: 2px 7px; border-radius: 5px; font-size: 10px; background: #efecfb; color: #7766bd; }
+.compact-orders .order-status.CANCELLED { background: #f0f1f5; color: #969daf; }
+.compact-orders .order-lines { margin: 0; padding: 12px; display: grid; gap: 9px; }
+.compact-orders .order-lines > div { gap: 14px; align-items: center; }
+.compact-orders .order-lines strong { font-size: 12px; font-weight: 600; color: #536184; }
+.compact-orders .order-lines small { display: block; margin-top: 3px; font-size: 10px; color: #99a1b5; }
+.compact-orders .order-lines > div > span { flex-shrink: 0; font-size: 11px; color: #687694; }
+.compact-orders .order-card footer { padding: 8px 12px; margin: 0; border-top: 1px solid #edf0f7; font-size: 11px; }
+.compact-orders .order-card footer > div { display: flex; gap: 6px; }
+.compact-orders .order-total { color: #8c96af; }
+.compact-orders .order-total strong { margin-left: 6px; color: #5e638e; font-size: 14px; }
+.compact-orders .order-detail { padding: 10px 12px; margin: 0; font-size: 11px; line-height: 1.65; background: #f8f9fe; overflow-wrap: anywhere; }
+.compact-orders .order-detail input { padding: 7px 9px; font-size: 12px; }
+.compact-orders .orders-pagination { margin-top: 12px; font-size: 11px; }
+.favorites-toolbar small { font-size: 10px; color: #929bb1; }
+.favorite-row { display: grid; grid-template-columns: 58px minmax(0,1fr) auto auto; gap: 12px; align-items: center; padding: 12px; border: 1px solid #e1e5f0; border-radius: 10px; background: #ffffffdf; }
+.favorite-thumbnail { border: 1px solid #edf0f6; padding: 0; width: 58px; height: 58px; overflow: hidden; border-radius: 8px; background: #f5f6fb; }
+.favorite-thumbnail img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.favorite-thumbnail .image-placeholder { height: 100%; min-height: 0; }
+.favorite-thumbnail .image-placeholder svg { width: 24px; height: 24px; }
+.favorite-thumbnail .image-placeholder span,.favorite-thumbnail .image-placeholder small { display: none; }
+.favorite-info { min-width: 0; }
+.favorite-info button { display: block; border: 0; padding: 0; background: none; text-align: left; color: #536184; font-size: 12px; font-weight: 600; line-height: 1.5; }
+.favorite-info span,.favorite-info small,.favorite-price small { display: block; font-size: 10px; color: #929bb1; margin-top: 3px; }
+.favorite-price { text-align: right; }
+.favorite-price strong { font-size: 14px; font-weight: 600; color: #65648c; }
+.favorite-actions { display: flex; gap: 5px; flex-direction: column; }
+.favorite-actions button { display: flex; align-items: center; justify-content: center; gap: 4px; white-space: nowrap; }
+.favorite-actions button:last-child { border-color: transparent; background: none; color: #9aa1b5; }
+.favorite-actions svg { width: 12px; height: 12px; }
+.purchase-empty { padding: 38px 12px; text-align: center; font-size: 12px; color: #929bb1; background: #ffffffb8; border: 1px dashed #dfe2f0; border-radius: 10px; }
+.purchase-empty > svg { width: 24px; height: 24px; color: #a397d4; }
+.purchase-empty h2 { font-size: 14px; color: #697494; }
+@media(max-width:600px) {
+ .favorite-row { grid-template-columns: 48px minmax(0,1fr) auto; gap: 9px; padding: 10px; }
+ .favorite-thumbnail { width: 48px; height: 48px; }
+ .favorite-actions { grid-column: 2 / -1; flex-direction: row; justify-content: flex-end; }
+ .favorites-toolbar { align-items: flex-start; flex-direction: column; gap: 4px; }
+ .compact-orders .order-card > header > div { flex-direction: column; align-items: flex-start; gap: 2px; }
+ .compact-orders .order-card h2 { max-width: 190px; }
+ .compact-orders .order-card footer { gap: 8px; flex-wrap: wrap; }
+}
+.compact-orders .order-thumbnail { width: 42px; height: 42px; flex: 0 0 42px; border-radius: 6px; overflow: hidden; background: #f6f7fb; }
+.compact-orders .order-thumbnail img { width: 100%; height: 100%; object-fit: contain; }
+.compact-orders .order-thumbnail .image-placeholder { height: 100%; min-height: 0; }
+.compact-orders .order-thumbnail .image-placeholder svg { width: 21px; height: 21px; }
+.compact-orders .order-thumbnail .image-placeholder span,.compact-orders .order-thumbnail .image-placeholder small { display: none; }
+.compact-orders .order-line-info { flex: 1; min-width: 0; }
+@media(min-width:680px) {
+ .compact-orders .order-card { display: grid; grid-template-columns: minmax(0,1fr) 182px; }
+ .compact-orders .order-card > header,.compact-orders .order-detail { grid-column: 1 / -1; }
+ .compact-orders .order-card footer { border-top: 0; border-left: 1px solid #edf0f7; flex-direction: column; align-items: flex-end; justify-content: center; gap: 7px; }
+}

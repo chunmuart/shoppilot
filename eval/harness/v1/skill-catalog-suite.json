@@ -1,0 +1,186 @@
+{
+  "schema_version": "harness-eval-v1",
+  "cases_file": "skill-catalog-cases.json",
+  "dataset_version": "skill-catalog-v1-20260923",
+  "dataset_provenance": "40 个既有上下文模板的新参数集 + 8 个生产工厂工作流；参数留出，不宣称全新任务分布。 v1.1 从目录推导全部黑色 SKU，补齐曜石黑及价格币种归属断言；原 v1 冒烟结果不覆盖。 新增3个开发集固定请求轨迹；它们的合成摘要没有模型调用，不与生产流程混算收益。 Skill 专项使用生产编排器、原生 Agent 和隔离 SQLite，冻结回答轨迹，仅评估目录注入，不代表完整选购收益。",
+  "strategies": {
+    "current": {
+      "label": "legacy_system / passthrough",
+      "overrides": {
+        "context_strategy": "layered",
+        "context_pruning_timing": "pressure",
+        "context_product_tokens": 6000,
+        "context_target_tokens": 48000,
+        "prompt_cache_mode": "passthrough",
+        "prompt_cache_policy": "static_history",
+        "context_prompt_layout": "legacy_system"
+      }
+    },
+    "candidate": {
+      "label": "Skill 变化追加 / passthrough",
+      "overrides": {
+        "context_strategy": "layered",
+        "context_pruning_timing": "pressure",
+        "context_product_tokens": 6000,
+        "context_target_tokens": 48000,
+        "prompt_cache_mode": "passthrough",
+        "prompt_cache_policy": "static_history",
+        "context_prompt_layout": "legacy_system",
+        "skill_catalog_mode": "append_only"
+      }
+    }
+  },
+  "profiles": {
+    "contracts": {
+      "repetitions": 1,
+      "cases": [],
+      "purpose": "确定性安全回归，不调用模型"
+    },
+    "smoke": {
+      "repetitions": 1,
+      "cases": [
+        "h1-dev-sku",
+        "h1-dev-budget",
+        "h1-dev-stock",
+        "h1-dev-cost",
+        "agent-sku",
+        "agent-approval"
+      ],
+      "purpose": "每次 Harness 改动的真实模型冒烟，不可发布"
+    },
+    "dev": {
+      "repetitions": 2,
+      "cases": [
+        "h1-dev-sku",
+        "h1-dev-second",
+        "h1-dev-earliest",
+        "h1-dev-material",
+        "h1-dev-budget",
+        "h1-dev-country",
+        "h1-dev-selected",
+        "h1-dev-stock",
+        "h1-dev-cost",
+        "h1-dev-repeat",
+        "h1-dev-long-a",
+        "h1-dev-long-b",
+        "agent-sku",
+        "agent-approval",
+        "agent-form",
+        "cache-budget",
+        "cache-tools",
+        "cache-rebuild",
+        "skill-unchanged",
+        "skill-edit",
+        "skill-delete"
+      ],
+      "purpose": "开发调参，不能冒充留出结果"
+    },
+    "release": {
+      "repetitions": 3,
+      "cases": [
+        "h1-hold-first",
+        "h1-hold-last",
+        "h1-hold-blue",
+        "h1-hold-black",
+        "h1-hold-price",
+        "h1-hold-old-price",
+        "h1-hold-tax",
+        "h1-hold-scope",
+        "h1-hold-dest",
+        "h1-hold-delete",
+        "h1-hold-order",
+        "h1-hold-approval",
+        "h1-hold-pair",
+        "h1-hold-desc",
+        "h1-hold-sku-stock",
+        "h1-hold-quote-cn",
+        "h1-hold-origin",
+        "h1-hold-retrieval",
+        "h1-hold-current-sku",
+        "h1-hold-negative",
+        "h1-hold-source",
+        "h1-hold-injection",
+        "h1-hold-long-a",
+        "h1-hold-long-b",
+        "h1-hold-long-c",
+        "h1-hold-long-d",
+        "h1-hold-long-e",
+        "h1-hold-long-f",
+        "agent-restart",
+        "agent-cancel",
+        "agent-owner",
+        "agent-injection",
+        "agent-long"
+      ],
+      "purpose": "参数冻结后留出验收，不自动发布"
+    },
+    "cache_probe": {
+      "repetitions": 3,
+      "cases": [
+        "skill-unchanged",
+        "skill-edit",
+        "skill-delete"
+      ],
+      "purpose": "Skill 目录机制诊断；不是发布验收"
+    }
+  },
+  "contract_tests": [
+    "tests/test_harness_guards.py",
+    "tests/test_harness_middleware.py",
+    "tests/test_harness_infra.py",
+    "tests/test_harness_drift.py",
+    "tests/test_layered_context.py",
+    "tests/test_context_governance.py",
+    "tests/test_context_v2.py",
+    "tests/test_session_fencing.py",
+    "tests/test_native_memory_confirmation.py",
+    "tests/test_trade_store.py",
+    "tests/test_selected_skill.py",
+    "tests/test_prompt_cache.py",
+    "tests/test_prompt_cache_pruning.py",
+    "tests/test_structured_model_usage.py",
+    "tests/test_harness_evaluation.py",
+    "tests/test_cache_layout.py",
+    "tests/test_context_efficiency.py",
+    "tests/test_skill_catalog.py",
+    "tests/test_buyer_workspace.py",
+    "tests/test_capability_registry.py"
+  ],
+  "runtime": {
+    "concurrency": 1,
+    "min_interval_seconds": 2,
+    "model_retries": 0,
+    "request_timeout_seconds": 45,
+    "scenario_timeout_seconds": 900,
+    "output_limit": 2048,
+    "context_size": 128000,
+    "seed": 20260918
+  },
+  "gates": {
+    "actual_input_reduction": 0.25,
+    "ordinary_p95_max_ratio": 1.15,
+    "success_rate_min_difference": 0,
+    "critical_failures_max": 0,
+    "require_positive_reduction_ci": true,
+    "objective": "prompt_cache",
+    "billing_claim_requires_currency": true,
+    "actual_total_token_reduction": 0.15
+  },
+  "pricing": {
+    "currency": null,
+    "source": null,
+    "verified_at": null,
+    "verified": false
+  },
+  "limits": [
+    "不验证外部检索排序、真实支付物流或浏览器渲染",
+    "生产工厂工作流使用合成目录、本地 SQLite；知识检索与长期记忆提炼由独立契约测试覆盖",
+    "CP 不能以输入 token 降幅证明收益，独立启用需完整计费证明",
+    "passthrough不等于关闭供应商隐式缓存；比较的是显式标记增益",
+    "固定轨迹有业务语义合成资料及预设历史，不宣称真实Agent或实际摘要成本",
+    "首次请求有独立nonce但不能保证整个供应商缓存为空；未验证TTL边界",
+    "固定回答轨迹的目录专项，不验证完整选购与真实业务账单；不自动启用候选"
+  ],
+  "scorer_version": "sku-quotes-v1.4-typed-scope",
+  "experiment_version": "skill-catalog-append-only-v1"
+}
