@@ -1,4 +1,5 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
+import { DEMO_BUYER_ID } from "../lib/buyer";
 import { CommerceClient } from "../lib/commerceClient";
 
 export function useCommerceAgent() {
@@ -13,7 +14,7 @@ export function useCommerceAgent() {
     let accessToken = import.meta.env.VITE_API_TOKEN;
     try { accessToken ||= storage?.getItem("shoppilot.access-token"); } catch { /* 可使用构建配置。 */ }
     return new CommerceClient({ url: `${base}/commerce/ag-ui/run`, storage,
-      buyerId: import.meta.env.VITE_BUYER_ID || "pao-coder", accessToken });
+      buyerId: import.meta.env.VITE_BUYER_ID || DEMO_BUYER_ID, accessToken });
   });
   const snapshot = useSyncExternalStore(client.subscribe, client.getSnapshot);
   useEffect(() => { void client.initialize(); return () => client.detach(); }, [client]);

@@ -38,7 +38,7 @@
 .confirmation-card {
   padding: 25px 28px;
   border: 1px solid #d5dfd1;
-  border-radius: 18px;
+  border-radius: 10px;
   background: #fffefa;
   box-shadow: 0 8px 28px #24412e05;
 }
@@ -54,7 +54,7 @@
 .confirmation-status {
   flex-shrink: 0;
   padding: 7px 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 10px;
   color: #3e6249;
   background: #eaf0e4;
@@ -289,7 +289,7 @@
 .order-intent-product {
   padding: 18px;
   border: 1px solid #dfe5d7;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #f1f4e9;
   margin-bottom: 26px;
 }
@@ -377,7 +377,7 @@
   }
   .confirmation-card {
     padding: 20px 17px;
-    border-radius: 14px;
+    border-radius: 10px;
   }
   .confirmation-card-heading {
     gap: 10px;

@@ -4,14 +4,14 @@
 .workspace-heading h1 em { color: var(--green); font-style: normal; }
 .workspace-heading p { color: var(--muted); font-size: 15px; }
 .workspace-grid { display: grid; grid-template-columns: minmax(230px,.75fr) minmax(0,1.5fr); gap: 28px; align-items: start; }
-.workspace-library { padding: 24px; background: #f0f2eb; border-radius: 20px; }
-.workspace-editor { background: #fffefa; border: 1px solid var(--line); padding: 30px; border-radius: 22px; }
+.workspace-library { padding: 24px; background: #f0f2eb; border-radius: 10px; }
+.workspace-editor { background: #fffefa; border: 1px solid var(--line); padding: 30px; border-radius: 10px; }
 .workspace-section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
 .workspace-section-title h2 { font: 500 21px var(--serif); margin: 0; }
 .workspace-section-title > span { color: var(--muted); font-size: 12px; }
 .workspace-section-title button,.workspace-row-actions button,.workspace-delete-link,.workspace-delete button,.workspace-error button { background: transparent; border: 0; padding: 5px 0; color: var(--green); }
-.workspace-new { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; border: 1px dashed #b4c1b5; border-radius: 12px; color: var(--green); background: transparent; margin-bottom: 20px; }
-.workspace-item { position: relative; margin-top: 12px; padding: 18px; background: #fffefa; border: 1px solid transparent; border-radius: 14px; overflow-wrap: anywhere; }
+.workspace-new { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; border: 1px dashed #b4c1b5; border-radius: 10px; color: var(--green); background: transparent; margin-bottom: 20px; }
+.workspace-item { position: relative; margin-top: 12px; padding: 18px; background: #fffefa; border: 1px solid transparent; border-radius: 10px; overflow-wrap: anywhere; }
 .workspace-item.selected { border-color: var(--green); }
 .workspace-item-main { text-align: left; padding: 0; border: 0; background: transparent; width: 100%; }
 .workspace-item-main strong { display: block; font-size: 15px; font-weight: 500; color: var(--green); }
@@ -29,15 +29,15 @@
 .workspace-help { font-size: 12px; line-height: 1.9; color: var(--muted); }
 .workspace-form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; gap: 16px; }
 .workspace-form-footer > span { font-size: 12px; color: var(--muted); }
-.workspace-save { display: flex; align-items: center; gap: 15px; border: none; padding: 13px 22px; border-radius: 12px; background: var(--green); color: white; }
+.workspace-save { display: flex; align-items: center; gap: 15px; border: none; padding: 13px 22px; border-radius: 10px; background: var(--green); color: white; }
 .workspace-save svg,.workspace-new svg,.workspace-notice svg,.workspace-example svg { width: 18px; height: 18px; flex-shrink: 0; }
-.workspace-note,.workspace-notice,.workspace-error { border-radius: 12px; padding: 12px 18px; margin-bottom: 22px; }
+.workspace-note,.workspace-notice,.workspace-error { border-radius: 10px; padding: 12px 18px; margin-bottom: 22px; }
 .workspace-notice { background: var(--sage); color: var(--green); display: flex; gap: 9px; align-items: center; }
 .workspace-error { background: #faeee9; color: #904a33; }
 .workspace-error button { margin-left: 15px; text-decoration: underline; }
-.workspace-example { background: var(--sage); border-radius: 12px; padding: 18px; display: flex; align-items: flex-start; gap: 12px; color: var(--green); margin: 24px 0; font-size: 12px; }
+.workspace-example { background: var(--sage); border-radius: 10px; padding: 18px; display: flex; align-items: flex-start; gap: 12px; color: var(--green); margin: 24px 0; font-size: 12px; }
 .workspace-example p { margin: 0; line-height: 2; }
-.preference-kind { font-size: 11px; border-radius: 20px; padding: 4px 10px; background: var(--sage); color: var(--green); }
+.preference-kind { font-size: 11px; border-radius: 10px; padding: 4px 10px; background: var(--sage); color: var(--green); }
 .preference-kind.dislike { color: #935737; background: #f5eee3; }
 .workspace-row-actions { display: flex; gap: 20px; font-size: 12px; }
 @media(max-width: 1050px) { .workspace-grid { grid-template-columns: 1fr; } .workspace-library { order: 2; } }
@@ -50,8 +50,8 @@
 .preferences-workspace .workspace-heading h1 { font: 600 22px/1.4 var(--sans, sans-serif); margin: 0 0 7px; letter-spacing: -.3px; }
 .preferences-workspace .workspace-heading p { font-size: 12px; line-height: 1.6; margin: 0; }
 .preferences-workspace .workspace-grid { grid-template-columns: minmax(200px, .85fr) minmax(0, 1.3fr); gap: 16px; }
-.preferences-workspace .workspace-library { order: 0; padding: 14px; border-radius: 13px; }
-.preferences-workspace .workspace-editor { padding: 16px; border-radius: 13px; }
+.preferences-workspace .workspace-library { order: 0; padding: 14px; border-radius: 10px; }
+.preferences-workspace .workspace-editor { padding: 16px; border-radius: 10px; }
 .preferences-workspace .workspace-section-title { margin-bottom: 12px; gap: 8px; }
 .preferences-workspace .workspace-section-title h2 { font: 600 14px/1.5 var(--sans, sans-serif); }
 .preferences-workspace .workspace-section-title > span { font-size: 10px; }
@@ -79,31 +79,31 @@
 /* 方法库是主入口，新建或编辑时才打开表单。 */
 .buyer-workspace.skills-workspace { padding: 0 0 24px; }
 .skill-library-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
-.skill-library-header h2 { font-size: 17px; margin: 0 0 5px; color: #536184; }
-.skill-library-header h2 span { font-size: 11px; font-weight: 400; color: #9a94b6; margin-left: 5px; }
-.skill-library-header p { color: #919ab2; font-size: 12px; margin: 0; line-height: 1.6; }
-.skill-library-header .skill-create { display: flex; align-items: center; flex-shrink: 0; gap: 5px; padding: 8px 11px; color: white; background: #8070d3; border: 0; border-radius: 8px; font-size: 12px; }
+.skill-library-header h2 { font-size: 17px; margin: 0 0 5px; color: #786e5f; }
+.skill-library-header h2 span { font-size: 11px; font-weight: 400; color: #aba69f; margin-left: 5px; }
+.skill-library-header p { color: #a8a39b; font-size: 12px; margin: 0; line-height: 1.6; }
+.skill-library-header .skill-create { display: flex; align-items: center; flex-shrink: 0; gap: 5px; padding: 8px 11px; color: white; background: #3b8062; border: 0; border-radius: 8px; font-size: 12px; }
 .skill-create svg { width: 14px; height: 14px; }
 .skills-workspace .workspace-grid { display: block; }
-.skills-workspace .workspace-library { padding: 13px; border-radius: 11px; background: #ffffffc9; }
+.skills-workspace .workspace-library { padding: 13px; border-radius: 10px; background: #ffffffc9; }
 .skills-workspace .workspace-section-title { margin-bottom: 8px; }
-.skills-workspace .workspace-section-title h2 { font: 600 12px/1.5 var(--sans,sans-serif); color: #8793ac; }
+.skills-workspace .workspace-section-title h2 { font: 600 12px/1.5 var(--sans,sans-serif); color: #a39b90; }
 .skills-workspace .workspace-section-title button { font-size: 11px; }
-.skills-workspace .workspace-item { margin: 0; border: 0; border-top: 1px solid #eceef6; border-radius: 0; background: none; padding: 12px 8px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; align-items: center; }
-.skills-workspace .workspace-item.selected { background: #f6f3ff; border-color: #ece7fa; border-radius: 7px; }
-.skills-workspace .workspace-item-main strong { font-size: 13px; font-weight: 600; color: #60618a; }
+.skills-workspace .workspace-item { margin: 0; border: 0; border-top: 1px solid #f2f1f0; border-radius: 0; background: none; padding: 12px 8px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; align-items: center; }
+.skills-workspace .workspace-item.selected { background: #faf9f8; border-color: #f2f1ef; border-radius: 7px; }
+.skills-workspace .workspace-item-main strong { font-size: 13px; font-weight: 600; color: #7f776a; }
 .skills-workspace .workspace-item-main span { font-size: 11px; line-height: 1.6; margin: 4px 0; }
-.skills-workspace .workspace-item-main small { font-size: 10px; color: #a4aabe; }
+.skills-workspace .workspace-item-main small { font-size: 10px; color: #b6b2ac; }
 .skills-workspace .workspace-delete-link { margin: 0; font-size: 11px; }
 .skills-workspace .workspace-delete { grid-column: 1 / -1; margin: 0; }
 .skills-workspace .workspace-empty { padding: 26px 0; font-size: 12px; }
-.skill-editor-overlay .modal { width: min(620px,calc(100vw - 24px)); padding: 0; border-radius: 15px; background: #fafaff; }
+.skill-editor-overlay .modal { width: min(620px,calc(100vw - 24px)); padding: 0; border-radius: 10px; background: #fdfdfc; }
 .skill-editor-overlay .close-modal { top: 12px; right: 12px; width: 28px; height: 28px; }
-.skill-editor-overlay .workspace-editor { padding: 21px; border: 0; border-radius: 15px; }
+.skill-editor-overlay .workspace-editor { padding: 21px; border: 0; border-radius: 10px; }
 .skill-editor-overlay .workspace-section-title { padding-right: 28px; margin-bottom: 13px; }
-.skill-editor-overlay .workspace-section-title h2 { font: 600 16px/1.5 var(--sans,sans-serif); color: #5d6389; }
+.skill-editor-overlay .workspace-section-title h2 { font: 600 16px/1.5 var(--sans,sans-serif); color: #7e7568; }
 .skill-editor-overlay .workspace-section-title span { font-size: 10px; }
-.skill-editor-overlay .workspace-editor label { font-size: 12px; margin-top: 13px; color: #707b9b; }
+.skill-editor-overlay .workspace-editor label { font-size: 12px; margin-top: 13px; color: #91887a; }
 .skill-editor-overlay .workspace-editor input,.skill-editor-overlay .workspace-editor textarea { font-size: 12px; padding: 8px 10px; margin-top: 5px; border-radius: 7px; }
 .skill-editor-overlay .workspace-editor textarea { min-height: 145px; height: 185px; line-height: 1.7; }
 .skill-editor-overlay .workspace-help { font-size: 11px; margin: 8px 0; }

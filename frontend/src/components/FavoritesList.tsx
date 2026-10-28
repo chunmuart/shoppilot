@@ -16,6 +16,6 @@ export default function FavoritesList({ products, onDetail, onRemove, onBrowse }
       <div className="favorite-info"><button onClick={() => onDetail(product)}>{product.title}</button><span>{product.category} · {product.brand}</span><small><ProductImageCaption product={product} /></small></div>
       <div className="favorite-price"><strong>{money(product.price_major, product.currency)}</strong><small>收藏时商品价</small></div>
       <div className="favorite-actions"><button onClick={() => onDetail(product)}>查看详情</button><button aria-label={`取消收藏 ${product.title}`} onClick={() => onRemove(product)}><Icon name="heart" />取消收藏</button></div>
-    </article>)}</div> : <div className="purchase-empty"><Icon name="heart" /><h2>还没有收藏</h2><p>点击商品上的爱心，把喜欢的好物留在这里。</p><button onClick={onBrowse}>去发现好物</button></div>}
+    </article>)}</div> : <div className="purchase-empty"><Icon name="heart" /><h2>还没有收藏</h2><p>点击商品上的爱心，保存到这里。</p><button onClick={onBrowse}>去浏览商品</button></div>}
   </section>;
 }

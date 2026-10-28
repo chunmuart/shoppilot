@@ -1,60 +1,60 @@
-.execution-trace{margin:12px 0;color:#7a82a5;font-size:12px}
+.execution-trace{margin:12px 0;color:#9a9285;font-size:12px}
 .execution-trace ol{margin:0;padding:0;list-style:none}
 .execution-run+.execution-run{margin-top:12px}
-.execution-trace .execution-run-heading{display:flex;align-items:center;gap:8px;min-height:32px;margin:0;padding:5px 7px;color:#59648b;border:0;cursor:pointer;list-style:none}
-.execution-run-heading>svg{width:14px;height:14px;flex:none;color:#8a7cc4}
+.execution-trace .execution-run-heading{display:flex;align-items:center;gap:8px;min-height:32px;margin:0;padding:5px 7px;color:#7e7466;border:0;cursor:pointer;list-style:none}
+.execution-run-heading>svg{width:14px;height:14px;flex:none;color:#447560}
 .execution-run-heading strong{font-size:12px;font-weight:550}
-.execution-run-heading>span:not(.execution-run-chevron){font-size:11px;color:#8089aa}
-.execution-run-heading small{margin-left:auto;color:#8a92ae;font-size:10px}
+.execution-run-heading>span:not(.execution-run-chevron){font-size:11px;color:#a0978a}
+.execution-run-heading small{margin-left:auto;color:#a59e93;font-size:10px}
 .execution-run-chevron{margin-left:auto;font-size:15px;transition:transform .15s}
 .execution-run[open]>.execution-run-heading .execution-run-chevron{transform:rotate(180deg)}
 .execution-trace summary::-webkit-details-marker{display:none}
-.execution-trace summary:hover{background:#efecfa99;border-radius:6px}
-.execution-trace summary:focus-visible{outline:2px solid #9d8cd0;outline-offset:2px;border-radius:6px}
-.execution-thinking-note{margin:3px 7px 5px;color:#858cab;font-size:11px;line-height:1.5}
+.execution-trace summary:hover{background:#f4f3f299;border-radius: 6px}
+.execution-trace summary:focus-visible{outline:2px solid #478369;outline-offset:2px;border-radius: 6px}
+.execution-thinking-note{margin:3px 7px 5px;color:#a29a8e;font-size:11px;line-height:1.5}
 .execution-row{margin:1px 0}
 .execution-row summary{display:flex;align-items:center;gap:7px;min-height:32px;padding:5px 7px;cursor:pointer;list-style:none}
-.execution-icon{display:inline-flex;align-items:center;justify-content:center;color:#8a7cc4;flex:none}
+.execution-icon{display:inline-flex;align-items:center;justify-content:center;color:#447560;flex:none}
 .execution-icon svg{width:14px;height:14px;stroke-width:1.6}
 .execution-icon.is-live{animation:execution-breathe 1.5s ease-in-out infinite}
-.execution-title{flex:none;font-size:12px;font-weight:500;color:#63709b}
-.execution-preview{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1;font-size:11px;color:#838daf}
-.execution-status,.execution-duration{font-size:10px;white-space:nowrap;color:#8a92ad}
+.execution-title{flex:none;font-size:12px;font-weight:500;color:#8c8272}
+.execution-preview{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1;font-size:11px;color:#a49b8e}
+.execution-status,.execution-duration{font-size:10px;white-space:nowrap;color:#a29d95}
 .execution-duration{font-variant-numeric:tabular-nums}
 .execution-chevron{font-size:14px;transition:transform .15s;flex:none}
 .execution-row details[open] .execution-chevron{transform:rotate(180deg)}
-.execution-detail{margin:2px 7px 7px 27px;padding:9px 10px;background:#f8f8fdd9;border-left:2px solid #e3def4;color:#65708f;overflow-wrap:anywhere;max-height:min(400px,50vh);overflow:auto;overscroll-behavior:contain}
+.execution-detail{margin:2px 7px 7px 27px;padding:9px 10px;background:#fbfbfad9;border-left:2px solid #eceae6;color:#857c6f;overflow-wrap:anywhere;max-height:min(400px,50vh);overflow:auto;overscroll-behavior:contain}
 .execution-thinking-text{white-space:pre-wrap;line-height:1.65;font-size:12px}
-.execution-source{margin:0 0 6px;font-size:10px;color:#8a92ad}
+.execution-source{margin:0 0 6px;font-size:10px;color:#a29d95}
 .execution-detail p{margin:4px 0}
 .execution-facts{margin:0;font-size:11px;line-height:1.6}
 .execution-facts>div{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px}
-.execution-facts dt{color:#9297ae}
+.execution-facts dt{color:#a6a19a}
 .execution-facts dd{margin:0}
 .execution-row[data-status=error] .execution-status{color:#a75f74}
 .execution-row[data-status=waiting] .execution-status{color:#a07f46}
-.execution-row[data-status=completed] .execution-icon{color:#8596b1}
+.execution-row[data-status=completed] .execution-icon{color:#a69d90}
 .tool-product-result{margin-top:8px}
 .tool-products-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
-.tool-product-mini{display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:center;gap:7px;padding:7px;min-width:0;background:#fff;border:1px solid #e8e5f1;border-radius:7px}
-.tool-product-symbol{display:grid;place-items:center;width:30px;height:34px;border-radius:5px;background:#f2effa;color:#9c91bc}
+.tool-product-mini{display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:center;gap:7px;padding:7px;min-width:0;background:#fff;border:1px solid #edebe9;border-radius: 7px}
+.tool-product-symbol{display:grid;place-items:center;width:30px;height:34px;border-radius: 5px;background:#f6f5f3;color:#b0a89d}
 .tool-product-symbol svg{width:17px;height:17px}
 .tool-product-mini>div{min-width:0}
-.tool-product-mini strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#65708f;font-size:11px;line-height:1.45;font-weight:500}
-.tool-product-mini>div>span{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-top:3px;font-size:10px;color:#949ab0}
-.tool-product-mini b{align-self:start;padding-top:2px;font-size:11px;font-weight:500;color:#7d6aac;white-space:nowrap}
-.tool-products-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:5px;font-size:10px;color:#9297ae}
-.tool-products-footer button,.tool-products-note button{border:0;background:transparent;padding:4px;color:#8973b8;font-size:11px;cursor:pointer}
-.tool-products-footer button:focus-visible,.tool-products-note button:focus-visible{outline:2px solid #9d8cd0;outline-offset:1px;border-radius:3px}
-.tool-products-note{font-size:11px;color:#9297ae}
-.execution-empty{padding:36px 16px;text-align:center;color:#8a92ad}
+.tool-product-mini strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#857c6f;font-size:11px;line-height:1.45;font-weight:500}
+.tool-product-mini>div>span{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-top:3px;font-size:10px;color:#a8a39c}
+.tool-product-mini b{align-self:start;padding-top:2px;font-size:11px;font-weight:500;color:#9a8e7c;white-space:nowrap}
+.tool-products-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:5px;font-size:10px;color:#a6a19a}
+.tool-products-footer button,.tool-products-note button{border:0;background:transparent;padding:4px;color:#436b59;font-size:11px;cursor:pointer}
+.tool-products-footer button:focus-visible,.tool-products-note button:focus-visible{outline:2px solid #478369;outline-offset:1px;border-radius: 3px}
+.tool-products-note{font-size:10px;color:#a6a19a}
+.execution-empty{padding:36px 16px;text-align:center;color:#a29d95}
 .execution-empty>svg{width:25px;height:25px;margin-bottom:10px}
-.execution-empty strong{display:block;color:#63709b;font-weight:500}
+.execution-empty strong{display:block;color:#8c8272;font-weight:500}
 .execution-empty p{font-size:12px}
 /* 对话和执行页沿用同一密度，覆盖旧页面的大卡片样式。 */
-.shoppilot-workbench .assistant-response .execution-trace{margin:2px 0 8px;padding:0;border:0;border-radius:0;background:transparent}
+.shoppilot-workbench .assistant-response .execution-trace{margin:2px 0 8px;padding:0;border:0;border-radius: 0;background:transparent}
 .shoppilot-workbench .assistant-response .execution-run-heading{display:flex}
-.shoppilot-workbench .execution-workspace>.execution-trace{padding:12px;border-radius:10px;background:#ffffffb3}
+.shoppilot-workbench .execution-workspace>.execution-trace{padding:12px;border-radius: 10px;background:#ffffffb3}
 .shoppilot-workbench .execution-page-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;padding:12px 0 6px}
 .shoppilot-workbench .execution-page-heading h2{margin:0;font-size:14px}
 .shoppilot-workbench .execution-page-heading p{margin:0;font-size:12px}

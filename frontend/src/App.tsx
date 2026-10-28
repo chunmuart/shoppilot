@@ -1,4 +1,5 @@
 import Automations from "./components/Automations";
+import { displayBuyerName } from "./lib/buyer";
 import ModelPicker from "./components/ModelPicker";
 import HistorySearch from "./components/HistorySearch";
 import ContextWorkspace, { useContextWorkspace } from "./components/ContextWorkspace";
@@ -361,14 +362,12 @@ export default function App() {
         <button
           className="brand"
           onClick={() => switchView("shopping")}
-          aria-label="ShopPilot 环球好物首页"
+          aria-label="ShopPilot 选购工作台首页"
         >
           <Icon name="globe" className="brand-mark" />
-          <span>
-            <span className="brand-name">ShopPilot</span>
-            <span className="brand-subtitle">YOUR SHOPPING COMPANION</span>
-          </span>
+          <span className="brand-name">ShopPilot</span>
         </button>
+        <div className="sidebar-note"><span className="sidebar-note-icon"><Icon name="spark" /></span><div><strong>演示模式</strong><p>数据为本地样例，不接真实交易</p></div></div>
         <button className="new-chat" onClick={newShopping} disabled={busy}>
           <Icon name="plus" />
           新的选购
@@ -405,15 +404,14 @@ export default function App() {
             {item.origin === "automation" && <span className="session-automation-mark" title="自动化会话" aria-label="自动化会话"><Icon name="clock" /></span>}
           </button>
         ))}
-        {!agent.history.length && <p className="sidebar-empty">第一段选购，等你开启。</p>}
+        {!agent.history.length && <p className="sidebar-empty">还没有会话记录</p>}
         </div>
         <div className="sidebar-bottom">
-          <div className="sidebar-note"><span className="sidebar-note-icon"><Icon name="spark" /></span><div><strong>让选择，轻一点。</strong><p>找好物，也找到自己的偏好。</p></div></div>
           <div className="profile">
-            <span className="avatar">泡</span>
+            <span className="avatar">演</span>
             <span>
-              <span className="profile-name">{import.meta.env.VITE_BUYER_ID || "pao-coder"}</span>
-              <span className="profile-caption">每一次选择，都有新发现</span>
+              <span className="profile-name">{displayBuyerName(import.meta.env.VITE_BUYER_ID)}</span>
+              <span className="profile-caption">演示模式 · 无需登录</span>
             </span>
             <Icon name="leaf" />
           </div>
@@ -426,11 +424,11 @@ export default function App() {
               <button className="mobile-menu-toggle icon-button" aria-label="打开导航" aria-expanded={mobileNavOpen} aria-controls="workspace-navigation" onClick={() => setMobileNavOpen(!mobileNavOpen)}>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
               </button>
-              <div><div className="breadcrumb"><span>ShopPilot</span><span>／</span><span>环球好物</span></div>
+              <div><div className="breadcrumb"><span>ShopPilot</span><span>／</span><span>选购工作台</span></div>
               <h1>{view === "shopping" ? agent.history.find(item => item.id === agent.sessionId)?.title ?? "新的选购" : navItems.find((item) => item.id === (view === "favorites" ? "orders" : view))?.label}</h1></div>
             </div>
             <div className="topbar-actions">
-              <div className="location"><Icon name="pin" />{landedDestination ? `配送至 ${landedDestination}` : "探索世界好物"}</div>
+              <div className="location"><Icon name="pin" />{landedDestination ? `配送至 ${landedDestination}` : "未选择收货地"}</div>
               <button className="atmosphere-toggle icon-button" title={atmosphere ? "关闭氛围背景" : "开启氛围背景"} aria-label={atmosphere ? "关闭氛围背景" : "开启氛围背景"} aria-pressed={atmosphere} onClick={() => setAtmosphere(!atmosphere)}><Icon name="spark" /></button>
             </div>
           </header>
@@ -452,15 +450,15 @@ export default function App() {
               {!hasConversation ? (
                 <section className="welcome-panel">
                   <div className="welcome-symbol"><Icon name="globe" /><span><Icon name="spark" /></span></div>
-                  <div className="eyebrow">A WORLD OF GOOD FINDS</div>
-                  <h2>你的下一件好物，<br /><em>从这里开始。</em></h2>
-                  <p>告诉我你的期待，剩下的，一起慢慢选。</p>
+                  <div className="eyebrow">演示环境</div>
+                  <h2>从一个需求开始</h2>
+                  <p>说明用途、预算和收货地，我会给出候选商品并逐项核对价格。</p>
                   <div className="welcome-ideas">
-                    <button disabled={busy} onClick={() => submit(STARTERS[0])}><span className="starter-icon"><Icon name="bag" /></span><span><strong>旅行好物，一起挑</strong><small>看看 12 款装备 · 单件 500 元内</small></span><Icon name="arrow" /></button>
-                    <button disabled={busy} onClick={() => submit(STARTERS[1])}><span className="starter-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="12" width="4" height="8" rx="2"/><rect x="17" y="12" width="4" height="8" rx="2"/></svg></span><span><strong>日常好声音</strong><small>挑一副适合通勤的耳机</small></span><Icon name="arrow" /></button>
-                    <button disabled={busy} onClick={() => submit(STARTERS[2])}><span className="starter-icon"><Icon name="spark" /></span><span><strong>小预算，也出彩</strong><small>发现 100 元以内的好物</small></span><Icon name="arrow" /></button>
+                    <button disabled={busy} onClick={() => submit(STARTERS[0])}><span className="starter-icon"><Icon name="bag" /></span><span><strong>旅行装备</strong><small>12 款候选 · 单件 500 元内</small></span><Icon name="arrow" /></button>
+                    <button disabled={busy} onClick={() => submit(STARTERS[1])}><span className="starter-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="12" width="4" height="8" rx="2"/><rect x="17" y="12" width="4" height="8" rx="2"/></svg></span><span><strong>通勤耳机</strong><small>先理清选购思路</small></span><Icon name="arrow" /></button>
+                    <button disabled={busy} onClick={() => submit(STARTERS[2])}><span className="starter-icon"><Icon name="spark" /></span><span><strong>短途背包</strong><small>100 元以内的候选</small></span><Icon name="arrow" /></button>
                   </div>
-                  <span className="welcome-caption">认真挑选 · 清楚比较 · 从容决定</span>
+                  <span className="welcome-caption">三步示例：说需求 → 看推荐 → 确认下单</span>
                 </section>
               ) : (
                 <ConversationTurns messages={agent.messages} activities={activities} activeRunId={lastUser?.runId}
@@ -522,7 +520,7 @@ export default function App() {
                 <section className="search-results" aria-label="商品搜索结果">
                   <div className="results-heading">
                     <div className="results-label">
-                      <strong>这次找到的好物</strong> · {agent.products.length}{" "}
+                      <strong>本轮候选商品</strong> · {agent.products.length}{" "}
                       件
                     </div>
                     <button
@@ -534,7 +532,7 @@ export default function App() {
                       }
                     >
                       <Icon name="compare" />
-                      勾选商品，轻松对比
+                      勾选商品进行对比
                     </button>
                   </div>
                   {renderCards(agent.products)}
@@ -555,13 +553,13 @@ export default function App() {
                     <Icon name="bag" />
                     <h2>
                       {agent.status === "stopped"
-                        ? "先停在这里，也没关系"
+                        ? "本轮已停止"
                         : "这次，还没有合适的结果"}
                     </h2>
                     <p>
                       {agent.status === "stopped"
                         ? "本轮已停止，尚未收到商品结果。调整需求后可以重新开始。"
-                        : "这次检索没有返回符合条件的商品。可以调整预算、品类或配送地区，再一起看看。"}
+                        : "这次检索没有返回符合条件的商品。可以调整预算、品类或配送地区后重新检索。"}
                     </p>
                     <button
                       onClick={() => {
@@ -673,7 +671,7 @@ export default function App() {
               <ShoppingPlans {...planProps} compact />
             </div>}
             <label htmlFor="query" className="sr-only">
-              告诉 ShopPilot 你想寻找的好物
+              描述需求：用途、预算、收货地
             </label>
             <button type="button" className="composer-plan-toggle"
               disabled={busy||!!agent.toolApprovals?.length||!!agent.recoverableRunId||agent.confirmations.some(c=>c.status==="pending"&&!c.expired)}
@@ -717,9 +715,9 @@ export default function App() {
             </div>
           </form>
           <footer className="preview-footer">
-            <span>ShopPilot 环球好物</span>
+            <span>ShopPilot</span>
             <span>·</span>
-            <span>好物跨越距离，选择回到你心里</span>
+            <span>本地样例数据 · 不接真实交易</span>
           </footer>
         </div>
       </div>}

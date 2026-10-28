@@ -7,7 +7,7 @@
 }
 
 .compact-product-grid .product-card {
-  border-radius: 13px;
+  border-radius: 10px;
 }
 
 .compact-product-grid .product-visual {
@@ -44,7 +44,7 @@
   max-width: calc(100% - 14px);
   font-size: 9px;
   letter-spacing: 0;
-  color: #68758e;
+  color: #867d70;
 }
 
 .compact-product-grid .image-placeholder {
@@ -79,7 +79,7 @@
   font-size: 10px;
   line-height: 1.5;
   letter-spacing: 0;
-  color: #68758e;
+  color: #867d70;
 }
 
 .compact-product-grid .product-topline > span:first-child {
@@ -105,7 +105,7 @@
   overflow-wrap: anywhere;
   font-size: 11px;
   line-height: 1.5;
-  color: #68758e;
+  color: #867d70;
 }
 
 .compact-product-grid .product-price-row {
@@ -126,7 +126,7 @@
 .compact-product-grid .price-kind {
   margin: 0;
   font-size: 10px;
-  color: #748099;
+  color: #91897c;
 }
 
 .compact-product-grid .card-landed {
@@ -137,18 +137,18 @@
   font-size: 11px;
   line-height: 1.5;
   overflow-wrap: anywhere;
-  color: #696582;
+  color: #7a756d;
 }
 
 .compact-product-grid .card-landed span {
   flex-basis: 100%;
   font-size: 10px;
-  color: #748099;
+  color: #91897c;
 }
 
 .compact-product-grid .card-landed.pending {
   font-size: 10px;
-  color: #748099;
+  color: #91897c;
 }
 
 .compact-product-grid .product-footer {

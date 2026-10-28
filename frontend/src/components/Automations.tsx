@@ -312,11 +312,11 @@ export default function Automations({
         <div>
           <div className="automation-eyebrow">
             <Icon name="clock" />
-            按你的节奏，继续选购
+            定时任务
           </div>
-          <h2>把例行选购，交给 ShopPilot。</h2>
+          <h2>按计划执行例行选购</h2>
           <p>
-            设置一次计划，集中查看每次结果。你决定何时开始，也保留每一次确认。
+            设置计划后到点生成待开始记录；下单仍需确认，连续失败三次自动暂停。
           </p>
         </div>
         <button
@@ -830,7 +830,7 @@ function AutomationEditor({
                 required
                 maxLength={100}
                 value={draft.name}
-                placeholder="例如：每周通勤好物"
+                placeholder="例如：每周通勤清单"
                 onChange={(e) => patch({ name: e.target.value })}
               />
             </label>

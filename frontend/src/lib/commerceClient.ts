@@ -17,6 +17,7 @@ import { readConfirmations, mergeConfirmations } from "./confirmations";
 import { recoveringFetch } from "./recoveringFetch";
 import { readActivities, replaceRunActivities, upsertActivities } from "./activities";
 import { isSelectedSkill, readPublishedSkills, readSkillUsages } from "./skills";
+import { DEMO_BUYER_ID, LEGACY_BUYER_IDS } from "./buyer";
 
 const STORAGE_KEY = "shoppilot.agui.sessions.v1";
 const BUYER_KEY = "shoppilot.buyer";
@@ -303,7 +304,7 @@ export class CommerceClient {
   private sessions: SavedSession[] = [];
   private listeners = new Set<() => void>();
   private active?: { agent: HttpAgent; runId: string };
-  private buyerId = "pao-coder";
+  private buyerId = DEMO_BUYER_ID;
   private mutationId: string | undefined;
   private confirmationRevision = 0;
   private serverHistory: SessionSummary[] = [];
@@ -317,8 +318,9 @@ export class CommerceClient {
     // 身份、当前会话和正文缓存分别读取，坏缓存不能阻断服务端恢复。
     let storedBuyer: string | null = null;
     try { storedBuyer = options.storage?.getItem(BUYER_KEY) ?? null; } catch {}
-    this.buyerId = options.buyerId || "pao-coder";
-    const cacheBelongsToBuyer = storedBuyer === this.buyerId;
+    this.buyerId = options.buyerId || DEMO_BUYER_ID;
+    const isLegacyBuyer = storedBuyer !== null && LEGACY_BUYER_IDS.includes(storedBuyer);
+    const cacheBelongsToBuyer = !isLegacyBuyer && storedBuyer === this.buyerId;
     try {
       if (!cacheBelongsToBuyer) {
         options.storage?.setItem(STORAGE_KEY, "[]");

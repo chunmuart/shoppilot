@@ -96,9 +96,9 @@ export default function BuyerWorkspace({ mode, busy, request, onSkillsChanged }:
       </div>;
   return <section className={"buyer-workspace " + (mode === "preferences" ? "preferences-workspace" : "skills-workspace")} aria-label={mode === "skills" ? "我的 Skill" : "长期偏好"}>
     {mode === "skills" ? <header className="skill-library-header"><div><h2>我的方法库 <span>{skills.length}</span></h2><p>保存你的选购方法，在对话中输入 / 随时调用。</p></div><button type="button" className="skill-create" disabled={disabled} onClick={() => { if (selected) editSkill(null); else setSkillEditorOpen(true); }}><Icon name="plus" />新建 Skill</button></header> : <header className="workspace-heading">
-      <div className="eyebrow">THE LITTLE THINGS ABOUT YOU</div>
-      <h1>你的偏好，<em>一直记得。</em></h1>
-      <p>喜欢什么、想避开什么，都可以写在这里。每次开始选购，我会带上这些记忆。</p>
+      <div className="eyebrow">长期偏好</div>
+      <h1>偏好会作用于后续每次选购</h1>
+      <p>正向偏好按语义召回注入；负向约束每轮全量生效，不参与召回裁剪。</p>
     </header>}
     {busy && <p className="workspace-note" role="status">正在完成这次选购，结束后可编辑。新记忆从下一轮开始生效。</p>}
     {error && !(mode === "skills" && skillEditorOpen) && <div className="workspace-error" role="alert">{error} <button type="button" onClick={() => void refresh()} disabled={saving}>重新加载</button></div>}

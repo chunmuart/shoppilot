@@ -2,11 +2,11 @@
 .shoppilot-workbench .conversation{margin:18px 0 16px}
 .shoppilot-workbench .conversation-turn+.conversation-turn{margin-top:20px}
 .shoppilot-workbench .conversation .query-row{gap:8px;margin:0 0 14px}
-.shoppilot-workbench .conversation .query-bubble{padding:10px 13px;border-radius:12px 12px 3px 12px;font-size:13px;line-height:1.65}
+.shoppilot-workbench .conversation .query-bubble{padding:10px 13px;border-radius: 10px 10px 3px 10px;font-size:13px;line-height:1.65}
 .shoppilot-workbench .conversation .query-avatar{width:26px;height:26px;font-size:11px}
 .shoppilot-workbench .conversation .assistant-row{gap:9px;margin:0 0 16px}
-.shoppilot-workbench .conversation .assistant-mark{width:26px;height:26px;min-width:26px;border-radius:8px}
-.shoppilot-workbench .conversation .assistant-mark svg{width:16px;height:16px}
+.shoppilot-workbench .conversation .assistant-mark{width:26px;height:26px;min-width:26px;border-radius: 8px}
+.shoppilot-workbench .conversation .assistant-mark svg{width:10px;height:16px}
 .shoppilot-workbench .conversation .assistant-response{min-width:0;padding-top:1px}
 .shoppilot-workbench .conversation .assistant-label{margin-bottom:3px;font-size:12px}
 .shoppilot-workbench .conversation .assistant-label span{font-size:10px}

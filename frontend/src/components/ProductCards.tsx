@@ -29,7 +29,7 @@ export function ProductImage({
     return (
       <div className={`image-placeholder ${className}`}>
         <Icon name="bag" />
-        <span>{product.category || "好物详情"}</span>
+        <span>{product.category || "商品详情"}</span>
         <small>暂未提供商品图片</small>
       </div>
     );
