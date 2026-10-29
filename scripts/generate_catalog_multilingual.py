@@ -22,7 +22,13 @@ DIMENSIONS = [(45,28,16),(30,20,8),(30,25,10),(5,4,3),(20,18,8),(14,7,2),(10,4,2
 
 
 def build_records() -> list[dict]:
-    records = [json.loads(line) for line in (ROOT / 'data/catalog-v2.jsonl').read_text().splitlines() if line.strip()]
+    records = [
+        json.loads(line)
+        for line in (ROOT / 'data/catalog-v2.jsonl')
+        .read_text(encoding='utf-8')
+        .splitlines()
+        if line.strip()
+    ]
     for platform_index, (platform, languages) in enumerate(PLATFORM_LANGUAGES.items()):
         for language, locale in languages.items():
             language_index = LANGUAGE_ORDER.index(language)
@@ -73,7 +79,10 @@ def build_records() -> list[dict]:
 
 def main():
     records = build_records()
-    OUTPUT.write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in records))
+    OUTPUT.write_text(
+        ''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in records),
+        encoding='utf-8',
+    )
     print(json.dumps({'products': len(records), 'skus': sum(len(r['skus']) for r in records),
                       'platforms': dict(Counter(r['source_platform'] for r in records)),
                       'new_language_groups': len({(r['source_platform'], r['source_language']) for r in records[1000:]})}, ensure_ascii=False))

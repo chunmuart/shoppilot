@@ -59,3 +59,7 @@ frontend/dist/
 # 模型凭据主密钥永不进入版本库（含自定义 DATA_DIR）。
 **/.secrets/
 .research/
+
+# 本地运行日志与 Claude Code 会话配置不入库。
+/logs/
+/.claude/

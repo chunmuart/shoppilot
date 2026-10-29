@@ -11,7 +11,6 @@
 from __future__ import annotations
 
 import json
-import fcntl
 import os
 import tempfile
 from contextlib import contextmanager
@@ -33,6 +32,29 @@ from sqlalchemy.pool import NullPool
 
 logger = logging.getLogger(__name__)
 
+if os.name == "nt":
+    import msvcrt
+
+    def _lock_stream(stream) -> None:
+        stream.seek(0, os.SEEK_END)
+        if stream.tell() == 0:
+            stream.write(b"\0")
+            stream.flush()
+        stream.seek(0)
+        msvcrt.locking(stream.fileno(), msvcrt.LK_LOCK, 1)
+
+    def _unlock_stream(stream) -> None:
+        stream.seek(0)
+        msvcrt.locking(stream.fileno(), msvcrt.LK_UNLCK, 1)
+else:
+    import fcntl
+
+    def _lock_stream(stream) -> None:
+        fcntl.flock(stream, fcntl.LOCK_EX)
+
+    def _unlock_stream(stream) -> None:
+        fcntl.flock(stream, fcntl.LOCK_UN)
+
 
 def _safe_name(raw: str) -> str:
     """文件名清洗，避免路径穿越。"""
@@ -52,12 +74,12 @@ class JsonFilePreferenceStore(PreferenceStore):
 
     @contextmanager
     def _lock(self, buyer_id):
-        with self._path(buyer_id).with_suffix(".lock").open("a") as stream:
-            fcntl.flock(stream, fcntl.LOCK_EX)
+        with self._path(buyer_id).with_suffix(".lock").open("a+b") as stream:
+            _lock_stream(stream)
             try:
                 yield
             finally:
-                fcntl.flock(stream, fcntl.LOCK_UN)
+                _unlock_stream(stream)
 
     async def append(self, preference: BuyerPreference) -> None:
         with self._lock(preference.buyer_id):
