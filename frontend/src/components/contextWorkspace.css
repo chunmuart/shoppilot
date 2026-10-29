@@ -3,7 +3,7 @@
 .context-meter { position:relative; flex-shrink:0; line-height:1.5; }
 .context-meter-trigger {
  position:relative; display:grid; place-items:center; width:38px; height:38px;
- padding:0; border:0; border-radius: 50%; background:transparent; color:#938775;
+ padding:0; border:0; border-radius: 50%; background:transparent; color:#6b6258;
  cursor:pointer; transition:background .15s, color .15s;
 }
 .context-meter-trigger:hover, .context-meter-trigger[aria-expanded=true] { background:#f4f3f1; color:#7f7463; }

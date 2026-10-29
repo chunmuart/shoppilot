@@ -80,20 +80,20 @@
 .buyer-workspace.skills-workspace { padding: 0 0 24px; }
 .skill-library-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
 .skill-library-header h2 { font-size: 17px; margin: 0 0 5px; color: #786e5f; }
-.skill-library-header h2 span { font-size: 11px; font-weight: 400; color: #aba69f; margin-left: 5px; }
-.skill-library-header p { color: #a8a39b; font-size: 12px; margin: 0; line-height: 1.6; }
+.skill-library-header h2 span { font-size: 11px; font-weight: 400; color: #6b6258; margin-left: 5px; }
+.skill-library-header p { color: #6b6258; font-size: 12px; margin: 0; line-height: 1.6; }
 .skill-library-header .skill-create { display: flex; align-items: center; flex-shrink: 0; gap: 5px; padding: 8px 11px; color: white; background: #3b8062; border: 0; border-radius: 8px; font-size: 12px; }
 .skill-create svg { width: 14px; height: 14px; }
 .skills-workspace .workspace-grid { display: block; }
 .skills-workspace .workspace-library { padding: 13px; border-radius: 10px; background: #ffffffc9; }
 .skills-workspace .workspace-section-title { margin-bottom: 8px; }
-.skills-workspace .workspace-section-title h2 { font: 600 12px/1.5 var(--sans,sans-serif); color: #a39b90; }
+.skills-workspace .workspace-section-title h2 { font: 600 12px/1.5 var(--sans,sans-serif); color: #5f574d; }
 .skills-workspace .workspace-section-title button { font-size: 11px; }
 .skills-workspace .workspace-item { margin: 0; border: 0; border-top: 1px solid #f2f1f0; border-radius: 0; background: none; padding: 12px 8px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; align-items: center; }
 .skills-workspace .workspace-item.selected { background: #faf9f8; border-color: #f2f1ef; border-radius: 7px; }
 .skills-workspace .workspace-item-main strong { font-size: 13px; font-weight: 600; color: #7f776a; }
 .skills-workspace .workspace-item-main span { font-size: 11px; line-height: 1.6; margin: 4px 0; }
-.skills-workspace .workspace-item-main small { font-size: 10px; color: #b6b2ac; }
+.skills-workspace .workspace-item-main small { font-size: 10px; color: #6b6258; }
 .skills-workspace .workspace-delete-link { margin: 0; font-size: 11px; }
 .skills-workspace .workspace-delete { grid-column: 1 / -1; margin: 0; }
 .skills-workspace .workspace-empty { padding: 26px 0; font-size: 12px; }

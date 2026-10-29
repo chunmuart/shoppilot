@@ -20,7 +20,7 @@
 .conversation-search-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
 .conversation-search-id { flex: 0 1 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; color: #b5b1ab; }
 .conversation-search-current { flex-shrink: 0; border-radius: 4px; padding: 1px 5px; background: #edebe8; color: #a39888; font-size: 9px; }
-.conversation-search-result time { min-width: 52px; flex-shrink: 0; text-align: right; color: #aba7a0; font-size: 11px; }
+.conversation-search-result time { min-width: 52px; flex-shrink: 0; text-align: right; color: #6b6258; font-size: 11px; }
 .conversation-search-result[aria-disabled="true"] { cursor: default; opacity: .6; }
 .conversation-search-empty { display: flex; flex-direction: column; align-items: center; padding: 36px 20px 45px; color: #afaba4; }
 .conversation-search-empty > svg { height: 24px; width: 24px; margin-bottom: 14px; }

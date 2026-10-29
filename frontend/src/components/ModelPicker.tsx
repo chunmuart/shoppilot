@@ -164,7 +164,7 @@ function WindowSlider({ profile, value, disabled, onChange }: {
   return <div className="model-window-slider">
     <input type="range" min={0} max={Math.max(0, windows.length - 1)} step={1} value={index} disabled={locked}
       aria-label={profile.label + '的上下文窗口'} aria-valuetext={current ? formatModelWindow(current.tokens) + '，本次上限' : '无可选窗口'}
-      style={{ background: `linear-gradient(to right, var(--model-window-fill, #ddd8f3) ${windows.length > 1 ? index / (windows.length - 1) * 100 : 100}%, var(--model-window-track, #f2f1f9) 0)` }}
+      style={{ background: `linear-gradient(to right, var(--model-window-fill, #e9e6e2) ${windows.length > 1 ? index / (windows.length - 1) * 100 : 100}%, var(--model-window-track, #f6f5f4) 0)` }}
       onChange={event => selectIndex(Number(event.target.value))} onKeyDown={event => {
         const next = event.key === 'Home' ? 0 : event.key === 'End' ? windows.length - 1
           : ['ArrowRight', 'ArrowUp', 'PageUp'].includes(event.key) ? Math.min(windows.length - 1, index + 1)

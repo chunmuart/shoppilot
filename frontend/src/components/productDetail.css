@@ -71,7 +71,7 @@
   gap: 3px;
   border-radius: 0;
   background: #f6f5f4;
-  color: #8b8173;
+  color: #6b6258;
 }
 
 .product-detail .detail-thumbnail .image-placeholder svg {
@@ -96,7 +96,7 @@
 
 .product-detail .detail-image figcaption {
   margin-top: 5px;
-  color: #8b8173;
+  color: #6b6258;
   font-size: 10px;
   line-height: 1.4;
   text-align: center;
@@ -107,7 +107,7 @@
 }
 
 .product-detail .detail-brand {
-  color: #90877a;
+  color: #6b6258;
   font-size: 11px;
   overflow-wrap: anywhere;
 }
@@ -137,13 +137,13 @@
 .product-detail .detail-price-kind {
   display: inline;
   margin: 0;
-  color: #90877a;
+  color: #6b6258;
   font-size: 10px;
 }
 
 .drawer .product-detail .detail-description {
   margin: 12px 0;
-  color: #7e7669;
+  color: #5f574d;
   font-size: 13px;
   line-height: 1.65;
   overflow-wrap: anywhere;
@@ -193,7 +193,7 @@
 }
 
 .product-detail .sku-picker small {
-  color: #8a8275;
+  color: #6b6258;
   font-size: 10px;
 }
 
@@ -213,7 +213,7 @@
 }
 
 .product-detail .detail-specs dt {
-  color: #90877a;
+  color: #6b6258;
 }
 
 .product-detail .detail-specs dd {
@@ -230,7 +230,7 @@
   border-color: #e6e4e2;
   border-radius: 8px;
   background: #f6f5f3;
-  color: #827766;
+  color: #5f574d;
   overflow-wrap: anywhere;
 }
 
@@ -254,14 +254,14 @@
   border: 1px solid #eae8e5;
   border-radius: 8px;
   background: #f7f6f4;
-  color: #81796c;
+  color: #5f574d;
   font-size: 12px;
   overflow-wrap: anywhere;
 }
 
 .drawer .product-detail .detail-note {
   margin: 9px 0 12px;
-  color: #90877a;
+  color: #6b6258;
   font-size: 11px;
   line-height: 1.6;
 }
@@ -285,7 +285,7 @@
   border: 1px solid #e4e2df;
   border-radius: 7px;
   background: #fff;
-  color: #827766;
+  color: #5f574d;
   font-size: 12px;
   line-height: 1.35;
 }

@@ -79,7 +79,7 @@
   background: #fbfaf9c9;
   padding: 10px 13px;
   font-size: 12px;
-  color: #8c877f;
+  color: #6b6258;
 }
 .automation-dot {
   width: 6px;
@@ -107,7 +107,7 @@
   border-radius: 0;
   background: transparent;
   padding: 0 0 12px;
-  color: #a5a099;
+  color: #6b6258;
   font-size: 14px;
 }
 .automation-tabs button[aria-selected="true"] {
@@ -266,7 +266,7 @@
   padding: 65px 20px;
   text-align: center;
   font-size: 13px;
-  color: #a39f98;
+  color: #6b6258;
 }
 .automation-empty > svg {
   width: 28px;
@@ -456,7 +456,7 @@
   border-top: 1px solid #edebe9;
   padding-top: 8px;
 }
-.automation-model-label { color: #a39f98; font-size: 11px; white-space: nowrap; }
+.automation-model-label { color: #6b6258; font-size: 11px; white-space: nowrap; }
 .automation-segments {
   display: flex;
   flex-wrap: wrap;
@@ -558,7 +558,7 @@
 }
 .automation-authorization {
   font-size: 10px;
-  color: #a6a19a;
+  color: #6b6258;
   line-height: 1.8;
   display: flex;
   gap: 5px;
@@ -599,7 +599,7 @@
 }
 .automation-editor > footer > span {
   font-size: 11px;
-  color: #b3afa9;
+  color: #6b6258;
   margin-right: auto;
 }
 .automation-editor > .automation-error {
@@ -624,7 +624,7 @@
   font-size: 12px;
 }
 .automation-attempt small {
-  color: #a6a19a;
+  color: #6b6258;
 }
 .automation-attempt details {
   margin-top: 10px;
